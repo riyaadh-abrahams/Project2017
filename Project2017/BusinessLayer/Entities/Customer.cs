@@ -8,5 +8,7 @@ namespace Project2017.BusinessLayer.Entities
 {
     class Customer
     {
+        public string Name { get; set; }
+
     }
 }
