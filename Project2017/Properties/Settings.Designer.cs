@@ -33,5 +33,16 @@ namespace Project2017.Properties {
                 return ((string)(this["Project2017Connection"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-MRH96IE\\SQLEXPRESS;Initial Catalog=ProjectDatabase;Integrated" +
+            " Security=True")]
+        public string ProjectDatabaseConnectionString {
+            get {
+                return ((string)(this["ProjectDatabaseConnectionString"]));
+            }
+        }
     }
 }

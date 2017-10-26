@@ -16,7 +16,7 @@ namespace INF2011S_Workshop7_Shifts1_SOL.DatabaseLayer
     //Add public as access specifier to every class definition
     public class DB
     {    //***Once the database is created you can find the correct connection string by using the Settings.Default object to select the correct connection string
-        private string strConn = Settings.Default.Project2017Connection;
+        private string strConn = Settings.Default.ProjectDatabaseConnectionString;
         protected SqlConnection cnMain;
         protected DataSet dsMain;
         protected SqlDataAdapter daMain;

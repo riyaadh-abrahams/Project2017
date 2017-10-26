@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLayer\Controllers\BookingController.cs" />
+    <Compile Include="BusinessLayer\Controllers\CustomerController.cs" />
     <Compile Include="BusinessLayer\Controllers\RoomController.cs" />
     <Compile Include="BusinessLayer\Entities\Booking.cs" />
     <Compile Include="BusinessLayer\Entities\Customer.cs" />
@@ -59,6 +60,14 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="ProjectDatabaseDataSet.cs">
+      <DependentUpon>ProjectDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectDatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -69,6 +78,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ProjectDatabaseDataSet.xsc">
+      <DependentUpon>ProjectDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectDatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProjectDatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectDatabaseDataSet.xss">
+      <DependentUpon>ProjectDatabaseDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

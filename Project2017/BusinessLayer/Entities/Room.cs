@@ -8,5 +8,7 @@ namespace Project2017.BusinessLayer.Entities
 {
     class Room
     {
+        public string RoomID { get; set; }
+        public int MyProperty { get; set; }
     }
 }
