@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project2017.BusinessLayer.Controllers
 {
-    class RoomController
+    public class RoomController
     {
     }
 }

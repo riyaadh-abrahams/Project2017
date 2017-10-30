@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using Project2017.Properties; // ***needs to be added to be able to use the Settings property
 
 
-namespace INF2011S_Workshop7_Shifts1_SOL.DatabaseLayer
+namespace Project2017.DatabaseLayer
 {
     //Add public as access specifier to every class definition
     public class DB
