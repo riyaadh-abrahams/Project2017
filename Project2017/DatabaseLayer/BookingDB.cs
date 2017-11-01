@@ -6,6 +6,7 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using System.Xml;
+using System.Globalization;
 //namespaces
 using Project2017.BusinessLayer.Controllers;
 using Project2017.BusinessLayer.Entities;
@@ -92,14 +93,16 @@ namespace Project2017.DatabaseLayer
                         //Instantiate a new Booking object
                         myBooking = new Booking();
                         //Obtain each Booking attribute from the specific field in the row in the table
-                        myBooking.BookingID = Convert.ToString(myRow["ID"]).TrimEnd();
-                        myBooking.Name = Convert.ToString(myRow["Name"]).TrimEnd();
-                        myBooking.Surname = Convert.ToString(myRow["Surname"]).TrimEnd();
-                        myBooking.Address = Convert.ToString(myRow["Address"]).TrimEnd();
-                        myBooking.EmailAddress = Convert.ToString(myRow["EmailAddress"]).TrimEnd();
-                        myBooking.NumberOfGuests = Convert.ToInt32(myRow["NumberOfGuests"]);
+                        myBooking.BookingID = Convert.ToString(myRow["BookingID"]).TrimEnd();
+                        myBooking.CustomerID = Convert.ToString(myRow["CustomerID"]).TrimEnd();
+                        myBooking.NumberOfRooms = Convert.ToInt32(myRow["NumberOfRooms"]);
+                        myBooking.ArrivalDate = DateTime.ParseExact(Convert.ToString(myRow["ArrivalDate"]),"dd/mm/yyyy", CultureInfo.CurrentCulture);
+                        myBooking.DaysDuration = Convert.ToInt32(myRow["DaysDuration"]);
+                        myBooking.DepositAmount = Convert.ToDecimal(myRow["DepositAmount"]);
+                        myBooking.DepositPaid = Convert.ToBoolean(myRow["DepositPaid"]);
+                        myBooking.PaymentID = Convert.ToString(myRow["PaymentID"]);
 
-                        bookings.Add(myBooking);
+                    bookings.Add(myBooking);
                     }
                 }
             }
@@ -108,18 +111,20 @@ namespace Project2017.DatabaseLayer
 
                 if (operation == DB.DBOperation.Add)
                 {
-                    aRow["ID"] = myBooking.BookingID;
+                    aRow["BookingID"] = myBooking.BookingID;
                 }
-                aRow["Name"] = myBooking.Name;
-                aRow["Surname"] = myBooking.Surname;
-                aRow["Address"] = myBooking.Address;
-                aRow["EmailAddress"] = myBooking.EmailAddress;
-                aRow["NumberOfGuests"] = myBooking.NumberOfGuests;
+                aRow["CustomerID"] = myBooking.CustomerID;
+                aRow["NumberOfRooms"] = myBooking.NumberOfRooms;
+                aRow["ArrivalDate"] = myBooking.ArrivalDate;
+                aRow["DaysDuration"] = myBooking.DaysDuration;
+                aRow["DepositAmount"] = myBooking.DepositAmount;
+                aRow["DepositPaid"] = myBooking.DepositPaid;
+                aRow["PaymentID"] = myBooking.PaymentID;
 
-            }
+        }
 
 
-            //The FindRow method finds the row for a specific Booking(by ID)  in a specific table
+            //The FindRow method finds the row for a specific Booking(by BookingID)  in a specific table
             private int FindRow(Booking myBooking)
             {
                 int rowIndex = 0;
@@ -132,7 +137,7 @@ namespace Project2017.DatabaseLayer
                     if (!(myRow.RowState == DataRowState.Deleted))
                     {
                         //In c# there is no item property (but we use the 2-dim array) it is automatically known to the compiler when used as below
-                        if (myBooking.BookingID == Convert.ToString(dsMain.Tables[table1].Rows[rowIndex]["ID"]))
+                        if (myBooking.BookingID == Convert.ToString(dsMain.Tables[table1].Rows[rowIndex]["BookingID"]))
                         {
                             returnValue = rowIndex;
                         }
@@ -148,25 +153,32 @@ namespace Project2017.DatabaseLayer
             {
                 SqlParameter param = default(SqlParameter);
 
-                param = new SqlParameter("@ID", SqlDbType.NVarChar, 15, "ID");
+                param = new SqlParameter("@BookingID", SqlDbType.NVarChar, 9, "BookingID");
                 daMain.InsertCommand.Parameters.Add(param);
 
-                param = new SqlParameter("@Name", SqlDbType.NVarChar, 10, "Name");
+                param = new SqlParameter("@CustomerID", SqlDbType.NVarChar, 9, "CustomerID");
                 daMain.InsertCommand.Parameters.Add(param);
 
-                //Do the same for Description & answer -ensure that you choose the right size
-                param = new SqlParameter("@Surname", SqlDbType.NVarChar, 100, "Surname");
+                param = new SqlParameter("@NumberOfRooms", SqlDbType.Int, 100, "NumberOfRooms");
                 daMain.InsertCommand.Parameters.Add(param);
 
-                param = new SqlParameter("@Address", SqlDbType.NVarChar, 15, "Address");
+                param = new SqlParameter("@ArrivalDate", SqlDbType.Date, 15, "ArrivalDate");
                 daMain.InsertCommand.Parameters.Add(param);
 
-                param = new SqlParameter("@EmailAddress", SqlDbType.NVarChar, 1, "EmailAddress");
+                param = new SqlParameter("@DaysDuration", SqlDbType.Int, 100, "DaysDuration");
                 daMain.InsertCommand.Parameters.Add(param);
 
-                param = new SqlParameter("@NumberOfGuests", SqlDbType.Int, 1, "NumberOfGuests");
+                param = new SqlParameter("@DepositAmount", SqlDbType.Decimal, 100,"DepositAmount");
                 daMain.InsertCommand.Parameters.Add(param);
-            }
+
+                param = new SqlParameter("@DepositPaid", SqlDbType.Bit, 100, "DepositPaid");
+                daMain.InsertCommand.Parameters.Add(param);
+
+                param = new SqlParameter("@PaymentID", SqlDbType.NVarChar, 9, "PaymentID");
+                daMain.InsertCommand.Parameters.Add(param);
+
+
+        }
 
 
             private void Build_UPDATE_Parameters(Booking myBooking)
@@ -174,52 +186,57 @@ namespace Project2017.DatabaseLayer
                 //---Create Parameters to communicate with SQL UPDATE
                 SqlParameter param = default(SqlParameter);
 
-                param = new SqlParameter("@Name", SqlDbType.NVarChar, 100, "Name");
-                param.SourceVersion = DataRowVersion.Current;
-                daMain.UpdateCommand.Parameters.Add(param);
-
-
-                //Do the same for Description & answer -ensure that you choose the right size
-                param = new SqlParameter("@Surname", SqlDbType.NVarChar, 100, "Surname");
-                param.SourceVersion = DataRowVersion.Current;
-                daMain.UpdateCommand.Parameters.Add(param);
-
-                param = new SqlParameter("@Address", SqlDbType.NVarChar, 15, "Address");
-                param.SourceVersion = DataRowVersion.Current;
-                daMain.UpdateCommand.Parameters.Add(param);
-
-                param = new SqlParameter("@EmailAddress", SqlDbType.NVarChar, 1, "EmailAddress");
-                param.SourceVersion = DataRowVersion.Current;
-                daMain.UpdateCommand.Parameters.Add(param);
-
-                param = new SqlParameter("@NumberOfGuests", SqlDbType.Int, 1, "NumberOfGuests");
-                param.SourceVersion = DataRowVersion.Current;
-                daMain.UpdateCommand.Parameters.Add(param);
-
-                //testing the ID of record that needs to change with the original ID of the record
-                param = new SqlParameter("@Original_ID", SqlDbType.NVarChar, 15, "ID");
+                param = new SqlParameter("@BookingID", SqlDbType.NVarChar, 9, "BookingID");
                 param.SourceVersion = DataRowVersion.Original;
                 daMain.UpdateCommand.Parameters.Add(param);
-            }
+
+                param = new SqlParameter("@CustomerID", SqlDbType.NVarChar, 9, "CustomerID");
+                param.SourceVersion = DataRowVersion.Original;
+                daMain.UpdateCommand.Parameters.Add(param);
+
+                param = new SqlParameter("@NumberOfRooms", SqlDbType.Int, 100, "NumberOfRooms");
+                param.SourceVersion = DataRowVersion.Original;
+                daMain.UpdateCommand.Parameters.Add(param);
+
+                param = new SqlParameter("@ArrivalDate", SqlDbType.Date, 15, "ArrivalDate");
+                param.SourceVersion = DataRowVersion.Original;
+                daMain.UpdateCommand.Parameters.Add(param);
+
+                param = new SqlParameter("@DaysDuration", SqlDbType.Int, 100, "DaysDuration");
+                param.SourceVersion = DataRowVersion.Original;
+                daMain.UpdateCommand.Parameters.Add(param);
+
+                param = new SqlParameter("@DepositAmount", SqlDbType.Decimal, 100, "DepositAmount");
+                param.SourceVersion = DataRowVersion.Original;
+                daMain.UpdateCommand.Parameters.Add(param);
+
+                param = new SqlParameter("@DepositPaid", SqlDbType.Bit, 100, "DepositPaid");
+                param.SourceVersion = DataRowVersion.Original;
+                daMain.UpdateCommand.Parameters.Add(param);
+
+                param = new SqlParameter("@PaymentID", SqlDbType.NVarChar, 9, "PaymentID");
+                param.SourceVersion = DataRowVersion.Original;
+                daMain.UpdateCommand.Parameters.Add(param);
+        }
 
             private void Build_DELETE_Parameters()
             {
                 //--Create Parameters to communicate with SQL DELETE
                 SqlParameter param;
-                param = new SqlParameter("@ID", SqlDbType.NVarChar, 15, "ID");
+                param = new SqlParameter("@BookingID", SqlDbType.NVarChar, 15, "BookingID");
                 param.SourceVersion = DataRowVersion.Original;
                 daMain.DeleteCommand.Parameters.Add(param);
             }
             private void Create_INSERT_Command(Booking myBooking)
             {
                 //Create the command that must be used to insert values into the Books table..
-                daMain.InsertCommand = new SqlCommand("INSERT into Bookings (ID, Name, Surname, Address, EmailAddress, NumberOfGuests) VALUES (@ID, @Name, @Surname, @Address, @EmailAddress, @NumberOfGuests)", cnMain);
+                daMain.InsertCommand = new SqlCommand("INSERT into Bookings (BookingID, CustomerID, NumberOfRooms, ArrivalDate, DaysDuration, DepositAmount, DepositPaid, PaymentID) VALUES (@BookingID, @CustomerID, @NumberOfRooms, @ArrivalDate, @DaysDuration, @DepositAmount, DepositPaid, PaymentID)", cnMain);
                 Build_INSERT_Parameters(myBooking);
             }
 
             private void Create_UPDATE_Command(Booking myBooking)
             {
-                daMain.UpdateCommand = new SqlCommand("UPDATE Bookings SET Name =@Name, Surname =@Surname, Address =@Address1, EmailAddress = @EmailAddress, NumberOfGuests = @NumberOfGuests " + "WHERE ID = @Original_ID", cnMain);
+                daMain.UpdateCommand = new SqlCommand("UPDATE Bookings SET CustomerID =@CustomerID, NumberOfRooms =@NumberOfRooms, ArrivalDate =@ArrivalDate, DaysDuration = @DaysDuration, DepositAmount = @DepositAmount, DepositPaid = @DepositPaid, PaymentID = @PaymentID " + "WHERE BookingID = @Original_ID", cnMain);
                 Build_UPDATE_Parameters(myBooking);
             }
 
@@ -227,7 +244,7 @@ namespace Project2017.DatabaseLayer
             {
                 string errorString = null;
                 //Create the command that must be used to delete values from the the appropriate table
-                daMain.DeleteCommand = new SqlCommand("DELETE FROM Bookings WHERE ID = @ID", cnMain);
+                daMain.DeleteCommand = new SqlCommand("DELETE FROM Bookings WHERE BookingID = @BookingID", cnMain);
                 try
                 {
                     Build_DELETE_Parameters();

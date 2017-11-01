@@ -65,7 +65,9 @@
     <Compile Include="BusinessLayer\Controllers\CustomerController.cs" />
     <Compile Include="BusinessLayer\Entities\Booking.cs" />
     <Compile Include="BusinessLayer\Entities\Customer.cs" />
+    <Compile Include="BusinessLayer\Entities\PaymentDetails.cs" />
     <Compile Include="BusinessLayer\Entities\Room.cs" />
+    <Compile Include="DatabaseLayer\BookingDB.cs" />
     <Compile Include="DatabaseLayer\DB.cs" />
     <Compile Include="DatabaseLayer\CustomerDB.cs" />
     <Compile Include="PresentationLayer\DateChooser.cs">
