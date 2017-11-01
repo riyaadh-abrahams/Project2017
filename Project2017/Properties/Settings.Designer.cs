@@ -26,8 +26,9 @@ namespace Project2017.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\EmployeesV201" +
-            "6.mdf;Integrated Security=True;Connect Timeout=30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-MRH96IE\\SQLEXPRESS;AttachDbFilename=C:\\INF2001S\\Project2017\\P" +
+            "roject2017\\Project2017DB.mdf;Integrated Security=True\\EmployeesV2016.mdf;Integra" +
+            "ted Security=True;Connect Timeout=30")]
         public string Project2017Connection {
             get {
                 return ((string)(this["Project2017Connection"]));

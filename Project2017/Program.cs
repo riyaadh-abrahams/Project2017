@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Project2017.PresentationLayer;
 
 namespace Project2017
 {
@@ -16,7 +17,7 @@ namespace Project2017
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MDIParent1());
         }
     }
 }

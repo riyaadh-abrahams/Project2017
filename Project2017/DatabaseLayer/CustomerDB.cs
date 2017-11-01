@@ -92,7 +92,7 @@ namespace Project2017.DatabaseLayer
                     //Instantiate a new Customer object
                     myCustomer = new Customer();
                     //Obtain each Customer attribute from the specific field in the row in the table
-                    myCustomer.CustomerID = Convert.ToString(myRow["ID"]).TrimEnd();
+                    myCustomer.CustomerID = Convert.ToString(myRow["CustomerID"]).TrimEnd();
                     myCustomer.Name = Convert.ToString(myRow["Name"]).TrimEnd();
 
                     if (myRow["Name"] == System.DBNull.Value)
@@ -107,7 +107,6 @@ namespace Project2017.DatabaseLayer
                     myCustomer.Surname = Convert.ToString(myRow["Surname"]).TrimEnd();
                     myCustomer.Address = Convert.ToString(myRow["Address"]).TrimEnd();
                     myCustomer.EmailAddress = Convert.ToString(myRow["EmailAddress"]).TrimEnd();
-                    myCustomer.NumberOfGuests = Convert.ToInt32(myRow["NumberOfGuests"]);
 
                     customers.Add(myCustomer);
                 }
@@ -118,18 +117,17 @@ namespace Project2017.DatabaseLayer
 
             if (operation == DB.DBOperation.Add)
             {
-                aRow["ID"] = myCustomer.CustomerID;
+                aRow["CustomerID"] = myCustomer.CustomerID;
             }
             aRow["Name"] = myCustomer.Name;
             aRow["Surname"] = myCustomer.Surname;
             aRow["Address"] = myCustomer.Address;
             aRow["EmailAddress"] = myCustomer.EmailAddress;
-            aRow["NumberOfGuests"] = myCustomer.NumberOfGuests;
 
         }
 
 
-        //The FindRow method finds the row for a specific Customer(by ID)  in a specific table
+        //The FindRow method finds the row for a specific Customer(by CustomerID)  in a specific table
         private int FindRow(Customer myCustomer)
         {
             int rowIndex = 0;
@@ -142,7 +140,7 @@ namespace Project2017.DatabaseLayer
                 if (!(myRow.RowState == DataRowState.Deleted))
                 {
                     //In c# there is no item property (but we use the 2-dim array) it is automatically known to the compiler when used as below
-                    if (myCustomer.CustomerID == Convert.ToString(dsMain.Tables[table1].Rows[rowIndex]["ID"]))
+                    if (myCustomer.CustomerID == Convert.ToString(dsMain.Tables[table1].Rows[rowIndex]["CustomerID"]))
                     {
                         returnValue = rowIndex;
                     }
@@ -158,7 +156,7 @@ namespace Project2017.DatabaseLayer
         {
             SqlParameter param = default(SqlParameter);
 
-            param = new SqlParameter("@ID", SqlDbType.NVarChar, 15, "ID");
+            param = new SqlParameter("@CustomerID", SqlDbType.NVarChar, 15, "CustomerID");
             daMain.InsertCommand.Parameters.Add(param);
 
             param = new SqlParameter("@Name", SqlDbType.NVarChar, 10, "Name");
@@ -206,8 +204,8 @@ namespace Project2017.DatabaseLayer
             param.SourceVersion = DataRowVersion.Current;
             daMain.UpdateCommand.Parameters.Add(param);
 
-            //testing the ID of record that needs to change with the original ID of the record
-            param = new SqlParameter("@Original_ID", SqlDbType.NVarChar, 15, "ID");
+            //testing the CustomerID of record that needs to change with the original CustomerID of the record
+            param = new SqlParameter("@Original_ID", SqlDbType.NVarChar, 15, "CustomerID");
             param.SourceVersion = DataRowVersion.Original;
             daMain.UpdateCommand.Parameters.Add(param);
         }
@@ -216,20 +214,20 @@ namespace Project2017.DatabaseLayer
         {
             //--Create Parameters to communicate with SQL DELETE
             SqlParameter param;
-            param = new SqlParameter("@ID", SqlDbType.NVarChar, 15, "ID");
+            param = new SqlParameter("@CustomerID", SqlDbType.NVarChar, 15, "CustomerID");
             param.SourceVersion = DataRowVersion.Original;
             daMain.DeleteCommand.Parameters.Add(param);
         }
         private void Create_INSERT_Command(Customer myCustomer)
         {
             //Create the command that must be used to insert values into the Books table..
-            daMain.InsertCommand = new SqlCommand("INSERT into Customers (ID, Name, Surname, Address, EmailAddress, NumberOfGuests) VALUES (@ID, @Name, @Surname, @Address, @EmailAddress, @NumberOfGuests)", cnMain);
+            daMain.InsertCommand = new SqlCommand("INSERT into Customers (CustomerID, Name, Surname, Address, EmailAddress, NumberOfGuests) VALUES (@CustomerID, @Name, @Surname, @Address, @EmailAddress, @NumberOfGuests)", cnMain);
             Build_INSERT_Parameters(myCustomer);
         }
 
         private void Create_UPDATE_Command(Customer myCustomer)
         {
-            daMain.UpdateCommand = new SqlCommand("UPDATE Customers SET Name =@Name, Surname =@Surname, Address =@Address1, EmailAddress = @EmailAddress, NumberOfGuests = @NumberOfGuests " + "WHERE ID = @Original_ID", cnMain);
+            daMain.UpdateCommand = new SqlCommand("UPDATE Customers SET Name =@Name, Surname =@Surname, Address =@Address1, EmailAddress = @EmailAddress, NumberOfGuests = @NumberOfGuests " + "WHERE CustomerID = @Original_ID", cnMain);
             Build_UPDATE_Parameters(myCustomer);
         }
 
@@ -237,7 +235,7 @@ namespace Project2017.DatabaseLayer
         {
             string errorString = null;
             //Create the command that must be used to delete values from the the appropriate table
-            daMain.DeleteCommand = new SqlCommand("DELETE FROM Customers WHERE ID = @ID", cnMain);
+            daMain.DeleteCommand = new SqlCommand("DELETE FROM Customers WHERE CustomerID = @CustomerID", cnMain);
             try
             {
                 Build_DELETE_Parameters();
