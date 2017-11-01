@@ -10,14 +10,15 @@ namespace Project2017.BusinessLayer.Entities
     {
 
         public string BookingID      { get; set; }
-        public Customer CustomerID   { get; set; }
+        public string CustomerID     { get; set; }
         public int NumberOfRooms     { get; set; }
         public DateTime ArrivalDate  { get; set; }
         public int DaysDuration      { get; set; }
         public decimal DepositAmount { get; set; }
         public bool DepositPaid      { get; set; }
+        public string PaymentID      { get; set; }
 
-        public Booking(string bookingID, Customer customerID, int numberOfRooms, DateTime arrivalDate, int daysDuration, decimal depositAmount, bool depositPaid)
+        public Booking(string bookingID, string customerID, int numberOfRooms, DateTime arrivalDate, int daysDuration, decimal depositAmount, bool depositPaid, string paymentID)
         {
             BookingID = bookingID;
             CustomerID = customerID;
@@ -26,6 +27,7 @@ namespace Project2017.BusinessLayer.Entities
             DaysDuration = daysDuration;
             DepositAmount = depositAmount;
             DepositPaid = depositPaid;
+            PaymentID = paymentID;
         }
 
         public Booking()

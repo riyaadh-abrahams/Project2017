@@ -118,7 +118,12 @@ namespace Project2017.PresentationLayer
             customerListForm = new CustomerListForm(customerController);
             customerListForm.MdiParent = this;
             customerListForm.StartPosition = FormStartPosition.CenterParent;
-            customerListForm.WindowState = FormWindowState.Maximized;
+            //customerListForm.WindowState = FormWindowState.Maximized;
+            customerListForm.MaximizeBox = false;
+            customerListForm.MinimizeBox = false;
+            customerListForm.ShowIcon = false;
+            customerListForm.FormBorderStyle=FormBorderStyle.None;
+            customerListForm.Dock = DockStyle.Fill;
         }
     }
 }

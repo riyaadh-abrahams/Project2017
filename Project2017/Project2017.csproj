@@ -63,7 +63,6 @@
   <ItemGroup>
     <Compile Include="BusinessLayer\Controllers\BookingController.cs" />
     <Compile Include="BusinessLayer\Controllers\CustomerController.cs" />
-    <Compile Include="BusinessLayer\Controllers\RoomController.cs" />
     <Compile Include="BusinessLayer\Entities\Booking.cs" />
     <Compile Include="BusinessLayer\Entities\Customer.cs" />
     <Compile Include="BusinessLayer\Entities\Room.cs" />
