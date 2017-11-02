@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project2017.BusinessLayer.Entities
 {
-    public class PaymentDetails
+    public class PaymentDetail
     {
         public string PaymentID { get; set; }
         public string CreditCardNumber { get; set; }
@@ -14,13 +14,18 @@ namespace Project2017.BusinessLayer.Entities
         public int ExpiryYear { get; set; }
         public string CVC { get; set; }
 
-        public PaymentDetails(string paymentID, string creditCardNumber, int expiryMonth, int expiryYear, string cVC)
+        public PaymentDetail(string paymentID, string creditCardNumber, int expiryMonth, int expiryYear, string cVC)
         {
             PaymentID = paymentID;
             CreditCardNumber = creditCardNumber;
             ExpiryMonth = expiryMonth;
             ExpiryYear = expiryYear;
             CVC = cVC;
+        }
+
+        public PaymentDetail()
+        {
+
         }
 
     }

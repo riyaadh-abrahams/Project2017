@@ -80,15 +80,15 @@ namespace Project2017.BusinessLayer.Controllers
             return Customers[index];  // this is the one!  
         }
 
-        public int FindIndex(Customer anEmp)
+        public int FindIndex(Customer myCustomer)
         {
             int counter = 0;
             bool found = false;
-            found = (anEmp.CustomerID == Customers[counter].CustomerID);   //using a Boolean Expression to initialise found
+            found = (myCustomer.CustomerID == Customers[counter].CustomerID);   //using a Boolean Expression to initialise found
             while (!(found) & counter < Customers.Count - 1)
             {
                 counter += 1;
-                found = (anEmp.CustomerID == Customers[counter].CustomerID);
+                found = (myCustomer.CustomerID == Customers[counter].CustomerID);
             }
             if (found)
             {

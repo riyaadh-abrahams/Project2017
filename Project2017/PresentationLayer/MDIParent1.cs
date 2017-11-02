@@ -15,7 +15,10 @@ namespace Project2017.PresentationLayer
     {
         private int childFormNumber = 0;
         private CustomerListForm customerListForm;
+        private Form1 form1;
+        private DateChooser dateChooser;
         private CustomerController customerController;
+        private BookingController bookingController;
 
         public MDIParent1()
         {
@@ -124,6 +127,35 @@ namespace Project2017.PresentationLayer
             customerListForm.ShowIcon = false;
             customerListForm.FormBorderStyle=FormBorderStyle.None;
             customerListForm.Dock = DockStyle.Fill;
+        }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (dateChooser == null)
+            {
+                CreateNewdateChooser();
+            }
+            if (dateChooser.dateChooserFormClosed)
+            {
+                CreateNewdateChooser();
+            }
+
+            dateChooser.Show();
+
+        }
+
+        private void CreateNewdateChooser()
+        {
+            dateChooser = new DateChooser(bookingController);
+            dateChooser.MdiParent = this;
+            dateChooser.StartPosition = FormStartPosition.CenterParent;
+            //customerListForm.WindowState = FormWindowState.Maximized;
+            dateChooser.MaximizeBox = false;
+            dateChooser.MinimizeBox = false;
+            dateChooser.ShowIcon = false;
+            dateChooser.FormBorderStyle = FormBorderStyle.None;
+            dateChooser.Dock = DockStyle.Fill;
         }
     }
 }

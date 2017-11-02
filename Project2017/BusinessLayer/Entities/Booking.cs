@@ -9,22 +9,22 @@ namespace Project2017.BusinessLayer.Entities
     public class Booking
     {
 
-        public string BookingID      { get; set; }
-        public string CustomerID     { get; set; }
-        public int NumberOfRooms     { get; set; }
-        public DateTime ArrivalDate  { get; set; }
-        public int DaysDuration      { get; set; }
-        public decimal DepositAmount { get; set; }
-        public bool DepositPaid      { get; set; }
-        public string PaymentID      { get; set; }
+        public string BookingID       { get; set; }
+        public string CustomerID      { get; set; }
+        public int NumberOfRooms      { get; set; }
+        public DateTime ArrivalDate   { get; set; }
+        public DateTime DepartureDate { get; set; }
+        public decimal DepositAmount  { get; set; }
+        public bool DepositPaid       { get; set; }
+        public string PaymentID       { get; set; }
 
-        public Booking(string bookingID, string customerID, int numberOfRooms, DateTime arrivalDate, int daysDuration, decimal depositAmount, bool depositPaid, string paymentID)
+        public Booking(string bookingID, string customerID, int numberOfRooms, DateTime arrivalDate, DateTime departureDate, decimal depositAmount, bool depositPaid, string paymentID)
         {
             BookingID = bookingID;
             CustomerID = customerID;
             NumberOfRooms = numberOfRooms;
             ArrivalDate = arrivalDate;
-            DaysDuration = daysDuration;
+            DepartureDate = departureDate;
             DepositAmount = depositAmount;
             DepositPaid = depositPaid;
             PaymentID = paymentID;
@@ -35,14 +35,6 @@ namespace Project2017.BusinessLayer.Entities
 
         }
 
-        private static int GetOverlappingDays(DateTime firstStart, DateTime firstEnd, DateTime secondStart, DateTime secondEnd)
-        {
-            DateTime maxStart = firstStart > secondStart ? firstStart : secondStart;
-            DateTime minEnd = firstEnd < secondEnd ? firstEnd : secondEnd;
-            TimeSpan interval = minEnd - maxStart;
-            double returnValue = interval > TimeSpan.FromSeconds(0) ? interval.TotalDays : 0;
-            return (int)returnValue;
-        }
 
     }
 }

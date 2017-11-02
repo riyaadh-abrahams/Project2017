@@ -28,129 +28,122 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
+            this.arrivalDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.numRoomsUpDown = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
+            this.cancelButton1 = new System.Windows.Forms.Button();
+            this.checkAvailabilityButton = new System.Windows.Forms.Button();
+            this.nextButton1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.departurelDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRoomsUpDown)).BeginInit();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // arrivalDatePicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(70, 134);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 0;
+            this.arrivalDatePicker.Location = new System.Drawing.Point(108, 73);
+            this.arrivalDatePicker.MaxDate = new System.DateTime(2017, 12, 31, 0, 0, 0, 0);
+            this.arrivalDatePicker.MinDate = new System.DateTime(2017, 12, 1, 0, 0, 0, 0);
+            this.arrivalDatePicker.Name = "arrivalDatePicker";
+            this.arrivalDatePicker.Size = new System.Drawing.Size(200, 20);
+            this.arrivalDatePicker.TabIndex = 0;
+            this.arrivalDatePicker.Value = new System.DateTime(2017, 12, 1, 0, 0, 0, 0);
             // 
-            // numericUpDown1
+            // numRoomsUpDown
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(346, 134);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(53, 20);
-            this.numericUpDown1.TabIndex = 1;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(74, 199);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(60, 20);
-            this.numericUpDown2.TabIndex = 2;
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Location = new System.Drawing.Point(346, 193);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(53, 20);
-            this.numericUpDown3.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(342, 115);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 20);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Duration";
+            this.numRoomsUpDown.Location = new System.Drawing.Point(108, 227);
+            this.numRoomsUpDown.Name = "numRoomsUpDown";
+            this.numRoomsUpDown.Size = new System.Drawing.Size(200, 20);
+            this.numRoomsUpDown.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(70, 115);
+            this.label2.Location = new System.Drawing.Point(108, 54);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 19);
+            this.label2.Size = new System.Drawing.Size(97, 19);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Check in";
+            this.label2.Text = "Arrival Date";
+            // 
+            // cancelButton1
+            // 
+            this.cancelButton1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton1.Location = new System.Drawing.Point(542, 323);
+            this.cancelButton1.Name = "cancelButton1";
+            this.cancelButton1.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton1.TabIndex = 8;
+            this.cancelButton1.Text = "Cancel";
+            this.cancelButton1.UseVisualStyleBackColor = true;
+            // 
+            // checkAvailabilityButton
+            // 
+            this.checkAvailabilityButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkAvailabilityButton.Location = new System.Drawing.Point(108, 282);
+            this.checkAvailabilityButton.Name = "checkAvailabilityButton";
+            this.checkAvailabilityButton.Size = new System.Drawing.Size(200, 64);
+            this.checkAvailabilityButton.TabIndex = 9;
+            this.checkAvailabilityButton.Text = "Search";
+            this.checkAvailabilityButton.UseVisualStyleBackColor = true;
+            // 
+            // nextButton1
+            // 
+            this.nextButton1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nextButton1.Location = new System.Drawing.Point(639, 323);
+            this.nextButton1.Name = "nextButton1";
+            this.nextButton1.Size = new System.Drawing.Size(75, 23);
+            this.nextButton1.TabIndex = 10;
+            this.nextButton1.Text = "Next";
+            this.nextButton1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(108, 127);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(124, 19);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Departure Date";
+            // 
+            // departurelDatePicker
+            // 
+            this.departurelDatePicker.Location = new System.Drawing.Point(108, 149);
+            this.departurelDatePicker.MaxDate = new System.DateTime(2017, 12, 31, 0, 0, 0, 0);
+            this.departurelDatePicker.MinDate = new System.DateTime(2017, 12, 1, 0, 0, 0, 0);
+            this.departurelDatePicker.Name = "departurelDatePicker";
+            this.departurelDatePicker.Size = new System.Drawing.Size(200, 20);
+            this.departurelDatePicker.TabIndex = 11;
+            this.departurelDatePicker.Value = new System.DateTime(2017, 12, 1, 0, 0, 0, 0);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(70, 177);
+            this.label3.Location = new System.Drawing.Point(108, 205);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 19);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Guests";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(342, 170);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 20);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Rooms";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(542, 323);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(661, 323);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Search";
-            this.button2.UseVisualStyleBackColor = true;
+            this.label3.Size = new System.Drawing.Size(148, 19);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Number of Rooms";
             // 
             // DateChooser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(795, 389);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label4);
+            this.ClientSize = new System.Drawing.Size(795, 463);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.numericUpDown3);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.departurelDatePicker);
+            this.Controls.Add(this.nextButton1);
+            this.Controls.Add(this.checkAvailabilityButton);
+            this.Controls.Add(this.cancelButton1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.numRoomsUpDown);
+            this.Controls.Add(this.arrivalDatePicker);
             this.Name = "DateChooser";
             this.Text = "DateChooser";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRoomsUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,15 +151,14 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker arrivalDatePicker;
+        private System.Windows.Forms.NumericUpDown numRoomsUpDown;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button cancelButton1;
+        private System.Windows.Forms.Button checkAvailabilityButton;
+        private System.Windows.Forms.Button nextButton1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker departurelDatePicker;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
     }
 }
