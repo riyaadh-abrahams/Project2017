@@ -29,21 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SummaryPage));
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.CancelB = new System.Windows.Forms.Button();
             this.ConfirmB = new System.Windows.Forms.Button();
             this.Print = new System.Windows.Forms.Button();
             this.Delete = new System.Windows.Forms.Button();
             this.Edit = new System.Windows.Forms.Button();
+            this.CustomerListView = new System.Windows.Forms.ListView();
             this.SuspendLayout();
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(88, 37);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(353, 290);
-            this.listBox1.TabIndex = 0;
             // 
             // CancelB
             // 
@@ -97,17 +89,26 @@
             this.Edit.TabIndex = 5;
             this.Edit.UseVisualStyleBackColor = true;
             // 
+            // CustomerListView
+            // 
+            this.CustomerListView.Location = new System.Drawing.Point(37, 47);
+            this.CustomerListView.Name = "CustomerListView";
+            this.CustomerListView.Size = new System.Drawing.Size(338, 273);
+            this.CustomerListView.TabIndex = 6;
+            this.CustomerListView.UseCompatibleStateImageBehavior = false;
+            this.CustomerListView.SelectedIndexChanged += new System.EventHandler(this.CustomerListView_SelectedIndexChanged);
+            // 
             // SummaryPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(751, 476);
+            this.Controls.Add(this.CustomerListView);
             this.Controls.Add(this.Edit);
             this.Controls.Add(this.Delete);
             this.Controls.Add(this.Print);
             this.Controls.Add(this.ConfirmB);
             this.Controls.Add(this.CancelB);
-            this.Controls.Add(this.listBox1);
             this.Name = "SummaryPage";
             this.Text = "SummaryPage";
             this.ResumeLayout(false);
@@ -115,12 +116,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button CancelB;
         private System.Windows.Forms.Button ConfirmB;
         private System.Windows.Forms.Button Print;
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Button Edit;
+        private System.Windows.Forms.ListView CustomerListView;
     }
 }
