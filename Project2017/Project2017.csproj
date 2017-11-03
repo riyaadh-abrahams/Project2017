@@ -84,12 +84,6 @@
     <Compile Include="PresentationLayer\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="PresentationLayer\MDIParent1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PresentationLayer\MDIParent1.Designer.cs">
-      <DependentUpon>MDIParent1.cs</DependentUpon>
-    </Compile>
     <Compile Include="PresentationLayer\paymentform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,9 +117,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\MDIParent1.resx">
-      <DependentUpon>MDIParent1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\paymentform.resx">
       <DependentUpon>paymentform.cs</DependentUpon>

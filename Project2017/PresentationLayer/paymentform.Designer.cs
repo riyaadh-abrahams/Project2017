@@ -30,16 +30,16 @@
         {
             this.CardPaymentRadio = new System.Windows.Forms.RadioButton();
             this.PayLaterRadio = new System.Windows.Forms.RadioButton();
-            this.CardNumberTBox = new System.Windows.Forms.TextBox();
-            this.CardTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.ExpiryDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.CVSTBox = new System.Windows.Forms.TextBox();
             this.CardTypeLabel = new System.Windows.Forms.Label();
             this.ExpiryLabel = new System.Windows.Forms.Label();
             this.CardLabel = new System.Windows.Forms.Label();
             this.CVSLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.CancelB = new System.Windows.Forms.Button();
+            this.ContinueB = new System.Windows.Forms.Button();
+            this.CardNumberTBox = new System.Windows.Forms.TextBox();
+            this.CVSTBox = new System.Windows.Forms.TextBox();
+            this.ExpiryDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.CardTypeComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // CardPaymentRadio
@@ -65,39 +65,6 @@
             this.PayLaterRadio.Text = "Pay later";
             this.PayLaterRadio.UseVisualStyleBackColor = true;
             this.PayLaterRadio.CheckedChanged += new System.EventHandler(this.PayLaterRadio_CheckedChanged);
-            // 
-            // CardNumberTBox
-            // 
-            this.CardNumberTBox.Location = new System.Drawing.Point(72, 121);
-            this.CardNumberTBox.Name = "CardNumberTBox";
-            this.CardNumberTBox.Size = new System.Drawing.Size(149, 20);
-            this.CardNumberTBox.TabIndex = 3;
-            this.CardNumberTBox.TextChanged += new System.EventHandler(this.CardNumberTBox_TextChanged);
-            // 
-            // CardTypeComboBox
-            // 
-            this.CardTypeComboBox.FormattingEnabled = true;
-            this.CardTypeComboBox.Location = new System.Drawing.Point(268, 121);
-            this.CardTypeComboBox.Name = "CardTypeComboBox";
-            this.CardTypeComboBox.Size = new System.Drawing.Size(48, 21);
-            this.CardTypeComboBox.TabIndex = 4;
-            this.CardTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.CardTypeComboBox_SelectedIndexChanged);
-            // 
-            // ExpiryDatePicker
-            // 
-            this.ExpiryDatePicker.Location = new System.Drawing.Point(72, 189);
-            this.ExpiryDatePicker.Name = "ExpiryDatePicker";
-            this.ExpiryDatePicker.Size = new System.Drawing.Size(200, 20);
-            this.ExpiryDatePicker.TabIndex = 5;
-            this.ExpiryDatePicker.ValueChanged += new System.EventHandler(this.ExpiryDatePicker_ValueChanged);
-            // 
-            // CVSTBox
-            // 
-            this.CVSTBox.Location = new System.Drawing.Point(72, 262);
-            this.CVSTBox.Name = "CVSTBox";
-            this.CVSTBox.Size = new System.Drawing.Size(74, 20);
-            this.CVSTBox.TabIndex = 6;
-            this.CVSTBox.TextChanged += new System.EventHandler(this.CVSTBox_TextChanged);
             // 
             // CardTypeLabel
             // 
@@ -139,41 +106,72 @@
             this.CVSLabel.TabIndex = 10;
             this.CVSLabel.Text = "CVS No.";
             // 
-            // button1
+            // CancelB
             // 
-            this.button1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(456, 347);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = true;
+            this.CancelB.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelB.Location = new System.Drawing.Point(456, 347);
+            this.CancelB.Name = "CancelB";
+            this.CancelB.Size = new System.Drawing.Size(75, 23);
+            this.CancelB.TabIndex = 11;
+            this.CancelB.Text = "Cancel";
+            this.CancelB.UseVisualStyleBackColor = true;
+            this.CancelB.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // ContinueB
             // 
-            this.button2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(564, 347);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Continue";
-            this.button2.UseVisualStyleBackColor = true;
+            this.ContinueB.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ContinueB.Location = new System.Drawing.Point(564, 347);
+            this.ContinueB.Name = "ContinueB";
+            this.ContinueB.Size = new System.Drawing.Size(75, 23);
+            this.ContinueB.TabIndex = 12;
+            this.ContinueB.Text = "Continue";
+            this.ContinueB.UseVisualStyleBackColor = true;
+            this.ContinueB.Click += new System.EventHandler(this.ContinueB_Click);
+            // 
+            // CardNumberTBox
+            // 
+            this.CardNumberTBox.Location = new System.Drawing.Point(75, 122);
+            this.CardNumberTBox.Name = "CardNumberTBox";
+            this.CardNumberTBox.Size = new System.Drawing.Size(100, 20);
+            this.CardNumberTBox.TabIndex = 13;
+            // 
+            // CVSTBox
+            // 
+            this.CVSTBox.Location = new System.Drawing.Point(75, 263);
+            this.CVSTBox.Name = "CVSTBox";
+            this.CVSTBox.Size = new System.Drawing.Size(100, 20);
+            this.CVSTBox.TabIndex = 14;
+            // 
+            // ExpiryDatePicker
+            // 
+            this.ExpiryDatePicker.Location = new System.Drawing.Point(75, 190);
+            this.ExpiryDatePicker.Name = "ExpiryDatePicker";
+            this.ExpiryDatePicker.Size = new System.Drawing.Size(147, 20);
+            this.ExpiryDatePicker.TabIndex = 15;
+            // 
+            // CardTypeComboBox
+            // 
+            this.CardTypeComboBox.FormattingEnabled = true;
+            this.CardTypeComboBox.Location = new System.Drawing.Point(271, 120);
+            this.CardTypeComboBox.Name = "CardTypeComboBox";
+            this.CardTypeComboBox.Size = new System.Drawing.Size(69, 21);
+            this.CardTypeComboBox.TabIndex = 16;
             // 
             // paymentform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 448);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.CardTypeComboBox);
+            this.Controls.Add(this.ExpiryDatePicker);
+            this.Controls.Add(this.CVSTBox);
+            this.Controls.Add(this.CardNumberTBox);
+            this.Controls.Add(this.ContinueB);
+            this.Controls.Add(this.CancelB);
             this.Controls.Add(this.CVSLabel);
             this.Controls.Add(this.CardLabel);
             this.Controls.Add(this.ExpiryLabel);
             this.Controls.Add(this.CardTypeLabel);
-            this.Controls.Add(this.CVSTBox);
-            this.Controls.Add(this.ExpiryDatePicker);
-            this.Controls.Add(this.CardTypeComboBox);
-            this.Controls.Add(this.CardNumberTBox);
             this.Controls.Add(this.PayLaterRadio);
             this.Controls.Add(this.CardPaymentRadio);
             this.Name = "paymentform";
@@ -187,15 +185,15 @@
 
         private System.Windows.Forms.RadioButton CardPaymentRadio;
         private System.Windows.Forms.RadioButton PayLaterRadio;
-        private System.Windows.Forms.TextBox CardNumberTBox;
-        private System.Windows.Forms.ComboBox CardTypeComboBox;
-        private System.Windows.Forms.DateTimePicker ExpiryDatePicker;
-        private System.Windows.Forms.TextBox CVSTBox;
         private System.Windows.Forms.Label CardTypeLabel;
         private System.Windows.Forms.Label ExpiryLabel;
         private System.Windows.Forms.Label CardLabel;
         private System.Windows.Forms.Label CVSLabel;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button CancelB;
+        private System.Windows.Forms.Button ContinueB;
+        private System.Windows.Forms.TextBox CardNumberTBox;
+        private System.Windows.Forms.TextBox CVSTBox;
+        private System.Windows.Forms.DateTimePicker ExpiryDatePicker;
+        private System.Windows.Forms.ComboBox CardTypeComboBox;
     }
 }
