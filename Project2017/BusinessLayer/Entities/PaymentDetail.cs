@@ -8,6 +8,13 @@ namespace Project2017.BusinessLayer.Entities
 {
     public class PaymentDetail
     {
+
+        public enum paymentType
+        {
+            CreditCard =0,
+            Paylater=1
+        }
+        protected paymentType payType;
         public string PaymentID { get; set; }
         public string CreditCardNumber { get; set; }
         public int ExpiryMonth { get; set; }
