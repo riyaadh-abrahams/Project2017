@@ -19,6 +19,7 @@ namespace Project2017.DatabaseLayer
         private string strConn = Settings.Default.Project2017Connection;
         protected SqlConnection cnMain;
         protected DataSet dsMain;
+        protected DataSet dsAvailable;
         protected SqlDataAdapter daMain;
 
         protected string aSQLstring;  // to be initialised later
@@ -34,7 +35,8 @@ namespace Project2017.DatabaseLayer
             {
                 //Open a connection & create a new dataset object
                 cnMain = new SqlConnection(strConn);
-                dsMain = new DataSet();                
+                dsMain = new DataSet();
+                dsAvailable = new DataSet();             
             }
             catch (SystemException e)
             {
@@ -52,6 +54,23 @@ namespace Project2017.DatabaseLayer
                 cnMain.Open();
                 //dsMain.Clear();   // need to have all the tables in the dataset
                 daMain.Fill(dsMain, aTable);
+                cnMain.Close();
+            }
+            catch (Exception errObj)
+            {
+                MessageBox.Show(errObj.Message + "  " + errObj.StackTrace);
+            }
+        }
+
+        public void FillDataSetAV(string aSQLstring, string aTable)
+        {
+            //fills dataset fresh from the db for a specific table and with a specific Query
+            try
+            {
+                daMain = new SqlDataAdapter(aSQLstring, cnMain);
+                cnMain.Open();
+                //dsMain.Clear();   // need to have all the tables in the dataset
+                daMain.Fill(dsAvailable, aTable);
                 cnMain.Close();
             }
             catch (Exception errObj)

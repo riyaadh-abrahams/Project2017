@@ -37,6 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.departurelDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
+            this.canIBookLable = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numRoomsUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,6 +87,7 @@
             this.checkAvailabilityButton.TabIndex = 9;
             this.checkAvailabilityButton.Text = "Search";
             this.checkAvailabilityButton.UseVisualStyleBackColor = true;
+            this.checkAvailabilityButton.Click += new System.EventHandler(this.checkAvailabilityButton_Click);
             // 
             // nextButton1
             // 
@@ -127,11 +129,21 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Number of Rooms";
             // 
+            // canIBookLable
+            // 
+            this.canIBookLable.AutoSize = true;
+            this.canIBookLable.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.canIBookLable.Location = new System.Drawing.Point(480, 66);
+            this.canIBookLable.Name = "canIBookLable";
+            this.canIBookLable.Size = new System.Drawing.Size(0, 19);
+            this.canIBookLable.TabIndex = 14;
+            // 
             // DateChooser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(795, 463);
+            this.Controls.Add(this.canIBookLable);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.departurelDatePicker);
@@ -160,5 +172,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker departurelDatePicker;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label canIBookLable;
     }
 }

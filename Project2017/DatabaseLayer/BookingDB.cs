@@ -20,8 +20,28 @@ namespace Project2017.DatabaseLayer
             private string sqlLocal1 = "SELECT * FROM Bookings";
 
 
+        public string generateAVQuery(DateTime arrivalDate, DateTime departureDate)
+        {
+            string startDate=arrivalDate.ToString("dd/MM/yyyy",
+                                CultureInfo.InvariantCulture);
+
+            int duration = (int)(departureDate - arrivalDate).TotalDays;
+
+            string s = String.Format(@"select dateadd(dd,i,CONVERT(datetime, '{0}', 103)) as The_Date
+                                        , 2 - sum(NumberOfRooms) as RoomsAvailable
+                                        from Bookings, IntegerTable
+                                        where i between 0 and {1}
+                                        and ArrivalDate <= dateadd(dd, i, CONVERT(datetime, '{0}', 103))
+                                        and DepartureDate > dateadd(dd, i, CONVERT(datetime, '{0}', 103))
+                                        group by i
+                                        order by RoomsAvailable
+                                        ",startDate,duration);
+
+            return s;
+        }
+
+
         private Collection<Booking> bookings;
-            private Collection<Booking> roomsAvailable;
 
 
         //***every column (field) in a database table has a name, data type and the datatype has a size
@@ -41,6 +61,24 @@ namespace Project2017.DatabaseLayer
                 Add2Collection();
 
             }
+
+            public bool roomsAV(DateTime arrivalDate, DateTime departureDate, int numberOfRooms)
+            {
+                FillDataSetAV(generateAVQuery(arrivalDate, departureDate), table1);
+                if (dsAvailable.Tables[table1].Rows.Count == 0)
+                {
+                    return true;
+                }
+                else if (Convert.ToInt32(dsAvailable.Tables[table1].Rows[0]["RoomsAvailable"])>numberOfRooms)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
             public Collection<Booking> AllBookings
             {
                 get
@@ -98,8 +136,8 @@ namespace Project2017.DatabaseLayer
                         myBooking.BookingID = Convert.ToString(myRow["BookingID"]).TrimEnd();
                         myBooking.CustomerID = Convert.ToString(myRow["CustomerID"]).TrimEnd();
                         myBooking.NumberOfRooms = Convert.ToInt32(myRow["NumberOfRooms"]);
-                        myBooking.ArrivalDate = DateTime.ParseExact(Convert.ToString(myRow["ArrivalDate"]),"dd/mm/yyyy", CultureInfo.CurrentCulture);
-                        myBooking.DepartureDate = DateTime.ParseExact(Convert.ToString(myRow["DepartureDate"]), "dd/mm/yyyy", CultureInfo.CurrentCulture);
+                        myBooking.ArrivalDate = Convert.ToDateTime(myRow["ArrivalDate"]);
+                        myBooking.DepartureDate = Convert.ToDateTime(myRow["DepartureDate"]);
                         myBooking.DepositAmount = Convert.ToDecimal(myRow["DepositAmount"]);
                         myBooking.DepositPaid = Convert.ToBoolean(myRow["DepositPaid"]);
                         myBooking.PaymentID = Convert.ToString(myRow["PaymentID"]);

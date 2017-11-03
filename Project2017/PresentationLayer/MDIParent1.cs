@@ -24,6 +24,7 @@ namespace Project2017.PresentationLayer
         {
             InitializeComponent();
             customerController = new CustomerController();
+            bookingController = new BookingController();
         }
 
         private void ShowNewForm(object sender, EventArgs e)

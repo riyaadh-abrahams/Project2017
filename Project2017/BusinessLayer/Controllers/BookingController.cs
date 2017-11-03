@@ -104,8 +104,11 @@ namespace Project2017.BusinessLayer.Controllers
         #endregion
 
         #region Utility Methods
-        
 
+        public bool CanIBook(DateTime arrivalDate, DateTime departureDate, int numberOfRooms)
+        {
+            return BookingDB.roomsAV(arrivalDate, departureDate, numberOfRooms);
+        }
 
         #endregion
 
