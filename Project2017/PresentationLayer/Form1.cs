@@ -36,5 +36,18 @@ namespace Project2017
 
         }
         #endregion
+        #region Utility
+        private void ClearAll()
+        {
+            Identity.Text = "";
+            FirstTBox.Text = "";
+            LastTBox.Text = "";
+            phoneTBox.Text = "";
+            AddressTBox.Text = "";
+            CountryTBox.Text = "";
+            PostalTBox.Text = "";
+            EmailTBox.Text = "";
+        }
+        #endregion
     }
 }
