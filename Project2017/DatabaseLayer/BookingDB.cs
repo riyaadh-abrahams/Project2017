@@ -20,11 +20,13 @@ namespace Project2017.DatabaseLayer
             private string sqlLocal1 = "SELECT * FROM Bookings";
 
 
-            private Collection<Booking> bookings;
+        private Collection<Booking> bookings;
+            private Collection<Booking> roomsAvailable;
 
-            //***every column (field) in a database table has a name, data type and the datatype has a size
-            //*** we will use this struct later in the workshop series
-            public struct ColumnAttribs
+
+        //***every column (field) in a database table has a name, data type and the datatype has a size
+        //*** we will use this struct later in the workshop series
+        public struct ColumnAttribs
             {
                 public string myName;
                 public SqlDbType myType;
@@ -98,7 +100,7 @@ namespace Project2017.DatabaseLayer
                         myBooking.NumberOfRooms = Convert.ToInt32(myRow["NumberOfRooms"]);
                         myBooking.ArrivalDate = DateTime.ParseExact(Convert.ToString(myRow["ArrivalDate"]),"dd/mm/yyyy", CultureInfo.CurrentCulture);
                         myBooking.DepartureDate = DateTime.ParseExact(Convert.ToString(myRow["DepartureDate"]), "dd/mm/yyyy", CultureInfo.CurrentCulture);
-                    myBooking.DepositAmount = Convert.ToDecimal(myRow["DepositAmount"]);
+                        myBooking.DepositAmount = Convert.ToDecimal(myRow["DepositAmount"]);
                         myBooking.DepositPaid = Convert.ToBoolean(myRow["DepositPaid"]);
                         myBooking.PaymentID = Convert.ToString(myRow["PaymentID"]);
 

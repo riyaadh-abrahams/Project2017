@@ -42,7 +42,7 @@
             // 
             // arrivalDatePicker
             // 
-            this.arrivalDatePicker.Location = new System.Drawing.Point(108, 73);
+            this.arrivalDatePicker.Location = new System.Drawing.Point(108, 64);
             this.arrivalDatePicker.MaxDate = new System.DateTime(2017, 12, 31, 0, 0, 0, 0);
             this.arrivalDatePicker.MinDate = new System.DateTime(2017, 12, 1, 0, 0, 0, 0);
             this.arrivalDatePicker.Name = "arrivalDatePicker";
@@ -52,7 +52,7 @@
             // 
             // numRoomsUpDown
             // 
-            this.numRoomsUpDown.Location = new System.Drawing.Point(108, 227);
+            this.numRoomsUpDown.Location = new System.Drawing.Point(108, 224);
             this.numRoomsUpDown.Name = "numRoomsUpDown";
             this.numRoomsUpDown.Size = new System.Drawing.Size(200, 20);
             this.numRoomsUpDown.TabIndex = 3;
@@ -61,7 +61,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(108, 54);
+            this.label2.Location = new System.Drawing.Point(108, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 19);
             this.label2.TabIndex = 5;
@@ -70,7 +70,7 @@
             // cancelButton1
             // 
             this.cancelButton1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton1.Location = new System.Drawing.Point(542, 323);
+            this.cancelButton1.Location = new System.Drawing.Point(542, 383);
             this.cancelButton1.Name = "cancelButton1";
             this.cancelButton1.Size = new System.Drawing.Size(75, 23);
             this.cancelButton1.TabIndex = 8;
@@ -80,7 +80,7 @@
             // checkAvailabilityButton
             // 
             this.checkAvailabilityButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkAvailabilityButton.Location = new System.Drawing.Point(108, 282);
+            this.checkAvailabilityButton.Location = new System.Drawing.Point(112, 292);
             this.checkAvailabilityButton.Name = "checkAvailabilityButton";
             this.checkAvailabilityButton.Size = new System.Drawing.Size(200, 64);
             this.checkAvailabilityButton.TabIndex = 9;
@@ -90,7 +90,7 @@
             // nextButton1
             // 
             this.nextButton1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nextButton1.Location = new System.Drawing.Point(639, 323);
+            this.nextButton1.Location = new System.Drawing.Point(639, 383);
             this.nextButton1.Name = "nextButton1";
             this.nextButton1.Size = new System.Drawing.Size(75, 23);
             this.nextButton1.TabIndex = 10;
@@ -101,7 +101,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(108, 127);
+            this.label1.Location = new System.Drawing.Point(108, 118);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 19);
             this.label1.TabIndex = 12;
@@ -109,7 +109,7 @@
             // 
             // departurelDatePicker
             // 
-            this.departurelDatePicker.Location = new System.Drawing.Point(108, 149);
+            this.departurelDatePicker.Location = new System.Drawing.Point(108, 140);
             this.departurelDatePicker.MaxDate = new System.DateTime(2017, 12, 31, 0, 0, 0, 0);
             this.departurelDatePicker.MinDate = new System.DateTime(2017, 12, 1, 0, 0, 0, 0);
             this.departurelDatePicker.Name = "departurelDatePicker";
@@ -121,7 +121,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(108, 205);
+            this.label3.Location = new System.Drawing.Point(108, 202);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(148, 19);
             this.label3.TabIndex = 13;

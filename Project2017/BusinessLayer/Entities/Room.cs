@@ -9,6 +9,6 @@ namespace Project2017.BusinessLayer.Entities
     public class Room
     {
         public string RoomID { get; set; }
-        public int MyProperty { get; set; }
+        public int RoomType { get; set; }
     }
 }
