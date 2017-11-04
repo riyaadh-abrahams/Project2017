@@ -19,9 +19,11 @@ namespace Project2017.PresentationLayer
         private SummaryPage summary;
         private Customer customer;
         private CustomerController customerController;
-        public paymentform()
+        public paymentform(CustomerController custController)
         {
             InitializeComponent();
+            customerController = custController;
+            ShowAll(true);
         }
         #region Radio Buttons
         private void CardPaymentRadio_CheckedChanged(object sender, EventArgs e)

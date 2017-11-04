@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Homepage));
             this.ExitB = new System.Windows.Forms.Button();
             this.makeReservation = new System.Windows.Forms.Button();
             this.GenerateReports = new System.Windows.Forms.Button();
@@ -43,38 +44,45 @@
             this.ExitB.TabIndex = 0;
             this.ExitB.Text = "Exit";
             this.ExitB.UseVisualStyleBackColor = true;
+            this.ExitB.Click += new System.EventHandler(this.ExitB_Click);
             // 
             // makeReservation
             // 
-            this.makeReservation.Location = new System.Drawing.Point(111, 72);
+            this.makeReservation.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.makeReservation.Location = new System.Drawing.Point(56, 104);
             this.makeReservation.Name = "makeReservation";
-            this.makeReservation.Size = new System.Drawing.Size(75, 23);
+            this.makeReservation.Size = new System.Drawing.Size(127, 49);
             this.makeReservation.TabIndex = 1;
-            this.makeReservation.Text = "button2";
+            this.makeReservation.Text = "Make Reservation";
             this.makeReservation.UseVisualStyleBackColor = true;
+            this.makeReservation.Click += new System.EventHandler(this.makeReservation_Click);
             // 
             // GenerateReports
             // 
-            this.GenerateReports.Location = new System.Drawing.Point(378, 72);
+            this.GenerateReports.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GenerateReports.Location = new System.Drawing.Point(403, 105);
             this.GenerateReports.Name = "GenerateReports";
-            this.GenerateReports.Size = new System.Drawing.Size(75, 23);
+            this.GenerateReports.Size = new System.Drawing.Size(127, 49);
             this.GenerateReports.TabIndex = 2;
-            this.GenerateReports.Text = "button3";
+            this.GenerateReports.Text = "Generate Reports";
             this.GenerateReports.UseVisualStyleBackColor = true;
             // 
             // ViewReservations
             // 
-            this.ViewReservations.Location = new System.Drawing.Point(111, 233);
+            this.ViewReservations.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ViewReservations.Location = new System.Drawing.Point(227, 104);
             this.ViewReservations.Name = "ViewReservations";
-            this.ViewReservations.Size = new System.Drawing.Size(75, 23);
+            this.ViewReservations.Size = new System.Drawing.Size(127, 49);
             this.ViewReservations.TabIndex = 3;
-            this.ViewReservations.Text = "button4";
+            this.ViewReservations.Text = "View Reservation";
             this.ViewReservations.UseVisualStyleBackColor = true;
+            this.ViewReservations.Click += new System.EventHandler(this.ViewReservations_Click);
             // 
             // Homepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(589, 402);
             this.Controls.Add(this.ViewReservations);
             this.Controls.Add(this.GenerateReports);
