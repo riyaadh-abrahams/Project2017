@@ -63,6 +63,15 @@ namespace Project2017.PresentationLayer
             customerController.DataMaintenance(customer, DatabaseLayer.DB.DBOperation.Add);
             customerController.FinalizeChanges(customer);
 
+            if(summary ==null) {
+                CreateSummaryForm();
+            }
+            if(summary.SummaryFormClosed) {
+                CreateSummaryForm();
+            }
+
+            summary.Show();
+
             
         }
 

@@ -15,7 +15,7 @@ namespace Project2017.PresentationLayer
 {
     public partial class SummaryPage : Form
     {
-        public bool form1Closed = false;
+        public bool SummaryFormClosed = false;
         private CustomerController customerController;
         private Customer customer;
         private Collection<Customer> customers;
@@ -35,8 +35,8 @@ namespace Project2017.PresentationLayer
 
         private void CancelB_Click(object sender, EventArgs e)
         {
-            
-            form1Closed = true;
+
+            SummaryFormClosed = true;
             this.Close();
         }
 
