@@ -45,10 +45,11 @@ namespace Project2017
             MessageBox.Show("Payment Page");
             customerController.DataMaintenance(customer, DatabaseLayer.DB.DBOperation.Add);
             customerController.FinalizeChanges(customer);
+            ClearAll();
 
-            payinglaunch = CreatePaymentForm(customerController);
+            CreatePaymentForm();
             payinglaunch.Show();
-            
+
 
         }
 
@@ -56,6 +57,7 @@ namespace Project2017
         {
             payinglaunch = new paymentform(customerController);
             payinglaunch.StartPosition = FormStartPosition.CenterParent;
+            form1Closed = true;
         }
         #endregion
         #region Utility

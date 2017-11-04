@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(reservationList));
             this.EditB = new System.Windows.Forms.Button();
             this.DeleteB = new System.Windows.Forms.Button();
             this.IDTBox = new System.Windows.Forms.TextBox();
             this.BookingIDLabel = new System.Windows.Forms.Label();
             this.CancelB = new System.Windows.Forms.Button();
-            this.ContinueB = new System.Windows.Forms.Button();
+            this.HomepageB = new System.Windows.Forms.Button();
             this.ReservationListview = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
@@ -87,16 +88,16 @@
             this.CancelB.UseVisualStyleBackColor = true;
             this.CancelB.Click += new System.EventHandler(this.CancelB_Click);
             // 
-            // ContinueB
+            // HomepageB
             // 
-            this.ContinueB.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ContinueB.Location = new System.Drawing.Point(410, 409);
-            this.ContinueB.Name = "ContinueB";
-            this.ContinueB.Size = new System.Drawing.Size(90, 23);
-            this.ContinueB.TabIndex = 6;
-            this.ContinueB.Text = "Continue";
-            this.ContinueB.UseVisualStyleBackColor = true;
-            this.ContinueB.Click += new System.EventHandler(this.ContinueB_Click);
+            this.HomepageB.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HomepageB.Location = new System.Drawing.Point(410, 409);
+            this.HomepageB.Name = "HomepageB";
+            this.HomepageB.Size = new System.Drawing.Size(90, 23);
+            this.HomepageB.TabIndex = 6;
+            this.HomepageB.Text = "HomePage";
+            this.HomepageB.UseVisualStyleBackColor = true;
+            this.HomepageB.Click += new System.EventHandler(this.ContinueB_Click);
             // 
             // ReservationListview
             // 
@@ -110,9 +111,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(525, 471);
             this.Controls.Add(this.ReservationListview);
-            this.Controls.Add(this.ContinueB);
+            this.Controls.Add(this.HomepageB);
             this.Controls.Add(this.CancelB);
             this.Controls.Add(this.BookingIDLabel);
             this.Controls.Add(this.IDTBox);
@@ -131,7 +133,7 @@
         private System.Windows.Forms.TextBox IDTBox;
         private System.Windows.Forms.Label BookingIDLabel;
         private System.Windows.Forms.Button CancelB;
-        private System.Windows.Forms.Button ContinueB;
+        private System.Windows.Forms.Button HomepageB;
         private System.Windows.Forms.ListView ReservationListview;
     }
 }

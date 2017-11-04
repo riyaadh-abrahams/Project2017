@@ -20,6 +20,7 @@ namespace Project2017.PresentationLayer
         private CustomerController customerController;
         private Customer customer;
         private Collection<Customer> customers;
+        private Homepage goHome;
 
         public reservationList(CustomerController custController)
         {
@@ -96,7 +97,7 @@ namespace Project2017.PresentationLayer
             EditB.Visible = value;
             DeleteB.Visible = value;
             CancelB.Visible = value;
-            ContinueB.Visible = value;
+            HomepageB.Visible = value;
         }
 
         private void ClearAll()
@@ -130,6 +131,15 @@ namespace Project2017.PresentationLayer
 
         private void ContinueB_Click(object sender, EventArgs e)
         {
+            CreateHomepae();
+        }
+
+        private void CreateHomepae()
+        {
+            goHome = new Homepage(customerController);
+            goHome.StartPosition = FormStartPosition.CenterParent;
+            listFormClosed = true;
+
 
         }
 

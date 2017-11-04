@@ -45,6 +45,7 @@ namespace Project2017.PresentationLayer
             else
             {
                 canIBookLable.Text = "Not Enough Rooms Available";
+                //Let's add ui refresh
             }
         }
     }

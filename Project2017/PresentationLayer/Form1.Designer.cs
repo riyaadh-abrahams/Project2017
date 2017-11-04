@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Check = new System.Windows.Forms.Button();
             this.Identity = new System.Windows.Forms.TextBox();
             this.AddressTBox = new System.Windows.Forms.TextBox();
@@ -112,7 +113,7 @@
             // CancelB
             // 
             this.CancelB.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelB.Location = new System.Drawing.Point(654, 419);
+            this.CancelB.Location = new System.Drawing.Point(482, 419);
             this.CancelB.Name = "CancelB";
             this.CancelB.Size = new System.Drawing.Size(75, 23);
             this.CancelB.TabIndex = 10;
@@ -123,7 +124,7 @@
             // ContinueB
             // 
             this.ContinueB.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ContinueB.Location = new System.Drawing.Point(756, 419);
+            this.ContinueB.Location = new System.Drawing.Point(573, 419);
             this.ContinueB.Name = "ContinueB";
             this.ContinueB.Size = new System.Drawing.Size(75, 23);
             this.ContinueB.TabIndex = 11;
@@ -174,10 +175,10 @@
             // IDLabel
             // 
             this.IDLabel.AutoSize = true;
-            this.IDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IDLabel.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IDLabel.Location = new System.Drawing.Point(47, 41);
             this.IDLabel.Name = "IDLabel";
-            this.IDLabel.Size = new System.Drawing.Size(20, 13);
+            this.IDLabel.Size = new System.Drawing.Size(23, 18);
             this.IDLabel.TabIndex = 17;
             this.IDLabel.Text = "ID";
             // 
@@ -222,7 +223,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 498);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(659, 454);
             this.Controls.Add(this.CountryLabel);
             this.Controls.Add(this.AddressLabel);
             this.Controls.Add(this.EmailLabel);
