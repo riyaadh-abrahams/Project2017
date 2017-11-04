@@ -114,6 +114,12 @@
     <Compile Include="PresentationLayer\reservationList.Designer.cs">
       <DependentUpon>reservationList.cs</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\SummaryPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\SummaryPage.Designer.cs">
+      <DependentUpon>SummaryPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="ProjectDatabaseDataSet.cs">
       <DependentUpon>ProjectDatabaseDataSet.xsd</DependentUpon>
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\reservationList.resx">
       <DependentUpon>reservationList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\SummaryPage.resx">
+      <DependentUpon>SummaryPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

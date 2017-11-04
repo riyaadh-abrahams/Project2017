@@ -48,7 +48,7 @@ namespace Project2017.PresentationLayer
 
         private void ReservationList_Load(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            
         }
 
         #endregion
@@ -136,7 +136,7 @@ namespace Project2017.PresentationLayer
 
         private void CreateHomepae()
         {
-            goHome = new Homepage(customerController);
+            goHome = new Homepage();
             goHome.StartPosition = FormStartPosition.CenterParent;
             listFormClosed = true;
 

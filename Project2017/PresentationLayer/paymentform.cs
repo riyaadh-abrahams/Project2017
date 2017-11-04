@@ -23,7 +23,7 @@ namespace Project2017.PresentationLayer
         {
             InitializeComponent();
             customerController = custController;
-            ShowAll(true);
+            ShowAll(true, PaymentDetail.paymentType.CreditCard);
         }
         #region Radio Buttons
         private void CardPaymentRadio_CheckedChanged(object sender, EventArgs e)

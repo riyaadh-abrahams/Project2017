@@ -20,10 +20,10 @@ namespace Project2017.PresentationLayer
         private Customer customer;
         private CustomerController customerController;
         public bool HomepageFormClosed = false;
-        public Homepage(CustomerController custController)
+        public Homepage()
         {
             InitializeComponent();
-            customerController = custController;
+            customerController = new CustomerController();
         }
 
         #region Form Events
@@ -68,6 +68,7 @@ namespace Project2017.PresentationLayer
             viewList = new reservationList(customerController);
             viewList.StartPosition = FormStartPosition.CenterParent;
             HomepageFormClosed = true;
+            viewList.Show();
         }
 
         private void ExitB_Click(object sender, EventArgs e)
