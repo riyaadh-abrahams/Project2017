@@ -8,21 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Project2017.BusinessLayer.Controllers;
-using Project2017.BusinessLayer.Entities;
 
 namespace Project2017.PresentationLayer
 {
-    public partial class Overview : Form
+    public partial class MDIParent1 : Form
     {
-
         private int childFormNumber = 0;
-        private Homepage goHome;
-        private reservationList viewList;
+        private CustomerListForm customerListForm;
+        private Form1 form1;
+        private DateChooser dateChooser;
         private CustomerController customerController;
-        public Overview()
+        private BookingController bookingController;
+
+        public MDIParent1()
         {
             InitializeComponent();
             customerController = new CustomerController();
+            bookingController = new BookingController();
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -43,7 +45,7 @@ namespace Project2017.PresentationLayer
                 string FileName = openFileDialog.FileName;
             }
         }
-        #region toosltrip
+
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -70,16 +72,6 @@ namespace Project2017.PresentationLayer
 
         private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-        }
-
-        private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            toolStrip.Visible = toolBarToolStripMenuItem.Checked;
-        }
-
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            statusStrip.Visible = statusBarToolStripMenuItem.Checked;
         }
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -109,49 +101,62 @@ namespace Project2017.PresentationLayer
                 childForm.Close();
             }
         }
-        #endregion
 
-        # region HomePage and Reservation List
-
-        private void CreateHomepage() 
+        private void listToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            goHome = new Homepage(customerController);
-            goHome.MdiParent = this;
-            goHome.StartPosition = FormStartPosition.CenterParent;
+            if (customerListForm == null)
+            {
+                CreateNewcustomerListForm();
+            }
+            if (customerListForm.listFormClosed)
+            {
+                CreateNewcustomerListForm();
+            }
+
+            customerListForm.setUpCustomerListView();
+            customerListForm.Show();
         }
 
-        private void CreateReservationList() 
+        private void CreateNewcustomerListForm()
         {
-            viewList = new reservationList(customerController);
-            viewList.MdiParent = this;
-            viewList.StartPosition = FormStartPosition.CenterParent;
-        }
-        #endregion
-
-        private void homePageToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(goHome == null) {
-                CreateHomepage();
-            }
-            if(goHome.HomepageFormClosed) {
-                CreateHomepage();
-            }
-
-            goHome.Show();
+            customerListForm = new CustomerListForm(customerController);
+            customerListForm.MdiParent = this;
+            customerListForm.StartPosition = FormStartPosition.CenterParent;
+            //customerListForm.WindowState = FormWindowState.Maximized;
+            customerListForm.MaximizeBox = false;
+            customerListForm.MinimizeBox = false;
+            customerListForm.ShowIcon = false;
+            customerListForm.FormBorderStyle=FormBorderStyle.None;
+            customerListForm.Dock = DockStyle.Fill;
         }
 
-        private void reservationsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(viewList==null) {
-                CreateReservationList();
+
+            if (dateChooser == null)
+            {
+                CreateNewdateChooser();
+            }
+            if (dateChooser.dateChooserFormClosed)
+            {
+                CreateNewdateChooser();
             }
 
-            if(viewList.listFormClosed) {
-                CreateReservationList();
-            }
+            dateChooser.Show();
 
-            viewList.setUpReservationListView();
-            viewList.Show();
+        }
+
+        private void CreateNewdateChooser()
+        {
+            dateChooser = new DateChooser(bookingController);
+            dateChooser.MdiParent = this;
+            dateChooser.StartPosition = FormStartPosition.CenterParent;
+            //customerListForm.WindowState = FormWindowState.Maximized;
+            dateChooser.MaximizeBox = false;
+            dateChooser.MinimizeBox = false;
+            dateChooser.ShowIcon = false;
+            dateChooser.FormBorderStyle = FormBorderStyle.None;
+            dateChooser.Dock = DockStyle.Fill;
         }
     }
 }

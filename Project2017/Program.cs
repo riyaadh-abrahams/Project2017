@@ -17,7 +17,7 @@ namespace Project2017
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Overview());
+            Application.Run(new MDIParent1());
         }
     }
 }
