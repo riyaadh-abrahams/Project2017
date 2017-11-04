@@ -16,11 +16,18 @@ namespace Project2017.PresentationLayer
     {
         public bool dateChooserFormClosed = false;
         private BookingController myBooking;
+        private CustomerController customerController;
 
         public DateChooser(BookingController booking)
         {
             InitializeComponent();
             myBooking = booking;
+        }
+
+        public DateChooser(CustomerController custController)
+        {
+            InitializeComponent();
+            customerController = custController;
         }
 
         private void checkAvailabilityButton_Click(object sender, EventArgs e)
@@ -38,6 +45,7 @@ namespace Project2017.PresentationLayer
             else
             {
                 canIBookLable.Text = "Not Enough Rooms Available";
+                //Let's add ui refresh
             }
         }
     }
