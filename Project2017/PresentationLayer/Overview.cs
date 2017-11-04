@@ -7,16 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Project2017.BusinessLayer.Controllers;
+using Project2017.BusinessLayer.Entities;
 
 namespace Project2017.PresentationLayer
 {
     public partial class Overview : Form
     {
-        private int childFormNumber = 0;
 
+        private int childFormNumber = 0;
+        private Homepage goHome;
+        private reservationList viewList;
+        private CustomerController customerController;
         public Overview()
         {
             InitializeComponent();
+            customerController = new CustomerController();
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -37,7 +43,7 @@ namespace Project2017.PresentationLayer
                 string FileName = openFileDialog.FileName;
             }
         }
-
+        #region toosltrip
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -102,6 +108,50 @@ namespace Project2017.PresentationLayer
             {
                 childForm.Close();
             }
+        }
+        #endregion
+
+        # region HomePage and Reservation List
+
+        private void CreateHomepage() 
+        {
+            goHome = new Homepage(customerController);
+            goHome.MdiParent = this;
+            goHome.StartPosition = FormStartPosition.CenterParent;
+        }
+
+        private void CreateReservationList() 
+        {
+            viewList = new reservationList(customerController);
+            viewList.MdiParent = this;
+            viewList.StartPosition = FormStartPosition.CenterParent;
+        }
+        #endregion
+
+        private void homePageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(goHome == null) {
+                CreateHomepage();
+            }
+            if(goHome.HomepageFormClosed) {
+                CreateHomepage();
+            }
+
+            goHome.Show();
+        }
+
+        private void reservationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(viewList==null) {
+                CreateReservationList();
+            }
+
+            if(viewList.listFormClosed) {
+                CreateReservationList();
+            }
+
+            viewList.setUpReservationListView();
+            viewList.Show();
         }
     }
 }

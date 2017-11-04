@@ -131,12 +131,20 @@ namespace Project2017.PresentationLayer
 
         private void ContinueB_Click(object sender, EventArgs e)
         {
-            CreateHomepae();
+            if(goHome==null) {
+                CreateHomepae();
+            }
+            if(goHome.HomepageFormClosed) {
+                CreateHomepae();
+            }
+
+            goHome.Show();
         }
 
         private void CreateHomepae()
         {
             goHome = new Homepage(customerController);
+            //reservationList.
             goHome.StartPosition = FormStartPosition.CenterParent;
             listFormClosed = true;
 

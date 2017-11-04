@@ -23,7 +23,7 @@ namespace Project2017.PresentationLayer
         {
             InitializeComponent();
             customerController = custController;
-            ShowAll(true);
+            ShowAll(true, PaymentDetail.paymentType.CreditCard);
         }
         #region Radio Buttons
         private void CardPaymentRadio_CheckedChanged(object sender, EventArgs e)
@@ -62,6 +62,15 @@ namespace Project2017.PresentationLayer
             MessageBox.Show("Confirmation box");
             customerController.DataMaintenance(customer, DatabaseLayer.DB.DBOperation.Add);
             customerController.FinalizeChanges(customer);
+
+            if(summary ==null) {
+                CreateSummaryForm();
+            }
+            if(summary.SummaryFormClosed) {
+                CreateSummaryForm();
+            }
+
+            summary.Show();
 
             
         }
