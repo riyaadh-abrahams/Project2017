@@ -54,7 +54,9 @@ namespace Project2017
             }
             else
             {
+                ClearAll();
                 label1.Text = "Guest Not Found! Add new Guest";
+                state = FormStates.Add;
                 ContinueB.Enabled = true;
             }
             
@@ -87,7 +89,6 @@ namespace Project2017
             LastTBox.Text = "";
             phoneTBox.Text = "";
             AddressTBox.Text = "";
-            CountryTBox.Text = "";
             EmailTBox.Text = "";
         }
         private void ShowAll(bool value)
@@ -98,7 +99,6 @@ namespace Project2017
             EmailLabel.Visible = value;
             AddressLabel.Visible = value;
             PhoneLabel.Visible = value;
-            CountryLabel.Visible = value;
 
             Identity.Visible = value;
             FirstTBox.Visible = value;
@@ -106,7 +106,6 @@ namespace Project2017
             AddressTBox.Visible = value;
             EmailTBox.Visible = value;
             phoneTBox.Visible = value;
-            CountryTBox.Visible = value;
         }
 
         private void PopulateTextBoxes(Customer myCustomer)
@@ -115,6 +114,7 @@ namespace Project2017
             LastTBox.Text = myCustomer.Surname;
             EmailTBox.Text = myCustomer.EmailAddress;
             AddressTBox.Text = myCustomer.Address;
+            phoneTBox.Text = myCustomer.Phone;
 
 
         }

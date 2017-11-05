@@ -43,13 +43,23 @@ namespace Project2017.PresentationLayer
 
             if (canIbook)
             {
-                canIBookLable.Text = "Rooms Available";
-                ContinueB.Enabled = true;
-
+                if (departureDate > arrivalDate)
+                {
+                    decimal charge = overView.bookingController.CalculateCharge(arrivalDatePicker.Value, departurelDatePicker.Value);
+                    canIBookLable.Text = "Rooms Available. Charge = " + charge;
+                    ContinueB.Enabled = true;
+                }
+                else
+                {
+                    canIBookLable.Text = "Invaid Dates!";
+                    ContinueB.Enabled = false;
+                }
+                
             }
             else
             {
                 canIBookLable.Text = "Not Enough Rooms Available";
+                ContinueB.Enabled = false;
                 //Let's add ui refresh
             }
         }
@@ -67,6 +77,12 @@ namespace Project2017.PresentationLayer
             {
                 overView.CreatePersonalForm();
             }
+
+            //Create Booking
+            overView.myBooking = new Booking();
+            overView.myBooking.ArrivalDate = arrivalDatePicker.Value;
+            overView.myBooking.DepartureDate = departurelDatePicker.Value;
+            overView.myBooking.NumberOfRooms = (int)numRoomsUpDown.Value;
 
             overView.personal.Show();
         }

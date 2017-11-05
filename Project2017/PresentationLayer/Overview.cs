@@ -25,6 +25,10 @@ namespace Project2017.PresentationLayer
         public Form1 personal { get; set; }
         public paymentform payinglaunch { get; set; }
         public SummaryPage summary { get; set; }
+
+        public Booking myBooking { get; set; }
+        public Customer myCustomer { get; set; }
+        public PaymentDetail PaymentDetail { get; set; }
         //private PaymentDetailController paymentDetailController;
 
         public Overview()

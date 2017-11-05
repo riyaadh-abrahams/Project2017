@@ -130,7 +130,7 @@
             this.departurelDatePicker.Name = "departurelDatePicker";
             this.departurelDatePicker.Size = new System.Drawing.Size(200, 20);
             this.departurelDatePicker.TabIndex = 11;
-            this.departurelDatePicker.Value = new System.DateTime(2017, 12, 1, 0, 0, 0, 0);
+            this.departurelDatePicker.Value = new System.DateTime(2017, 12, 2, 0, 0, 0, 0);
             // 
             // label3
             // 

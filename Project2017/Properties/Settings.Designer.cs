@@ -44,5 +44,16 @@ namespace Project2017.Properties {
                 return ((string)(this["ProjectDatabaseConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Project2017DB" +
+            ".mdf;Integrated Security=True")]
+        public string Project2017DBConnectionString {
+            get {
+                return ((string)(this["Project2017DBConnectionString"]));
+            }
+        }
     }
 }

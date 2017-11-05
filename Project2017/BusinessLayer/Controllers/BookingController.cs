@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Project2017.DatabaseLayer;
 using Project2017.BusinessLayer.Entities;
+using System.Globalization;
 
 namespace Project2017.BusinessLayer.Controllers
 {
@@ -108,6 +109,39 @@ namespace Project2017.BusinessLayer.Controllers
         public bool CanIBook(DateTime arrivalDate, DateTime departureDate, int numberOfRooms)
         {
             return BookingDB.roomsAV(arrivalDate, departureDate, 3 ,numberOfRooms);
+        }
+
+        public int inclusiveDays(DateTime s1, DateTime e1, DateTime s2, DateTime e2)
+        {
+            // If they don't intersect return 0.
+            if (!(s1 <= e2 && e1 >= s2))
+            {
+                return 0;
+            }
+
+            // Take the highest start date and the lowest end date.
+            DateTime start = s1 > s2 ? s1 : s2;
+            DateTime end = e1 > e2 ? e2 : e1;
+
+            // Add one to the time range since its inclusive.
+            return (int)(end - start).TotalDays ;
+        }
+
+        public decimal CalculateCharge(DateTime s, DateTime e)
+        {
+            int low = inclusiveDays(DateTime.ParseExact("01/12/2017", "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                        DateTime.ParseExact("07/12/2017", "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                        s, e);
+
+            int mid = inclusiveDays(DateTime.ParseExact("08/12/2017", "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                        DateTime.ParseExact("15/12/2017", "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                        s, e);
+
+            int high = inclusiveDays(DateTime.ParseExact("16/12/2017", "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                        DateTime.ParseExact("31/12/2017", "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                        s, e);
+
+            return (low * 500) + (mid * 750) + (high * 995);
         }
 
         #endregion

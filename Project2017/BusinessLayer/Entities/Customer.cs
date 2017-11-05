@@ -14,14 +14,16 @@ namespace Project2017.BusinessLayer.Entities
         public string Surname       { get; set; }
         public string Address       { get; set; }
         public string EmailAddress  { get; set; }
+        public string Phone { get; set; }
 
-        public Customer(string customerID, string name, string surname, string address, string emailAddress)
+        public Customer(string customerID, string name, string surname, string address, string emailAddress, string phone)
         {
             CustomerID = customerID;
             Name = name;
             Surname = surname;
             Address = address;
             EmailAddress = emailAddress;
+            Phone = phone;
         }
 
         public Customer()
