@@ -28,90 +28,98 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(reservationList));
+            this.EditB = new System.Windows.Forms.Button();
+            this.DeleteB = new System.Windows.Forms.Button();
+            this.IDTBox = new System.Windows.Forms.TextBox();
+            this.BookingIDLabel = new System.Windows.Forms.Label();
+            this.CancelB = new System.Windows.Forms.Button();
+            this.HomepageB = new System.Windows.Forms.Button();
+            this.ReservationListview = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
-            // listBox1
+            // EditB
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 28);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(501, 264);
-            this.listBox1.TabIndex = 0;
+            this.EditB.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditB.Location = new System.Drawing.Point(164, 327);
+            this.EditB.Name = "EditB";
+            this.EditB.Size = new System.Drawing.Size(47, 23);
+            this.EditB.TabIndex = 1;
+            this.EditB.Text = "Edit";
+            this.EditB.UseVisualStyleBackColor = true;
+            this.EditB.Click += new System.EventHandler(this.EditB_Click);
             // 
-            // button1
+            // DeleteB
             // 
-            this.button1.Location = new System.Drawing.Point(164, 327);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(47, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "edit";
-            this.button1.UseVisualStyleBackColor = true;
+            this.DeleteB.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteB.Location = new System.Drawing.Point(233, 328);
+            this.DeleteB.Name = "DeleteB";
+            this.DeleteB.Size = new System.Drawing.Size(68, 23);
+            this.DeleteB.TabIndex = 2;
+            this.DeleteB.Text = "Delete";
+            this.DeleteB.UseVisualStyleBackColor = true;
+            this.DeleteB.Click += new System.EventHandler(this.DeleteB_Click);
             // 
-            // button2
+            // IDTBox
             // 
-            this.button2.Location = new System.Drawing.Point(233, 328);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(42, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "delete";
-            this.button2.UseVisualStyleBackColor = true;
+            this.IDTBox.Location = new System.Drawing.Point(30, 330);
+            this.IDTBox.Name = "IDTBox";
+            this.IDTBox.Size = new System.Drawing.Size(100, 20);
+            this.IDTBox.TabIndex = 3;
             // 
-            // textBox1
+            // BookingIDLabel
             // 
-            this.textBox1.Location = new System.Drawing.Point(30, 330);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.BookingIDLabel.AutoSize = true;
+            this.BookingIDLabel.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BookingIDLabel.Location = new System.Drawing.Point(27, 311);
+            this.BookingIDLabel.Name = "BookingIDLabel";
+            this.BookingIDLabel.Size = new System.Drawing.Size(82, 18);
+            this.BookingIDLabel.TabIndex = 4;
+            this.BookingIDLabel.Text = "BookingID";
             // 
-            // label1
+            // CancelB
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(27, 311);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 16);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "ID";
+            this.CancelB.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelB.Location = new System.Drawing.Point(317, 409);
+            this.CancelB.Name = "CancelB";
+            this.CancelB.Size = new System.Drawing.Size(75, 23);
+            this.CancelB.TabIndex = 5;
+            this.CancelB.Text = "Cancel";
+            this.CancelB.UseVisualStyleBackColor = true;
+            this.CancelB.Click += new System.EventHandler(this.CancelB_Click);
             // 
-            // button3
+            // HomepageB
             // 
-            this.button3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(303, 409);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Cancel";
-            this.button3.UseVisualStyleBackColor = true;
+            this.HomepageB.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HomepageB.Location = new System.Drawing.Point(410, 409);
+            this.HomepageB.Name = "HomepageB";
+            this.HomepageB.Size = new System.Drawing.Size(100, 23);
+            this.HomepageB.TabIndex = 6;
+            this.HomepageB.Text = "HomePage";
+            this.HomepageB.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // ReservationListview
             // 
-            this.button4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(410, 409);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Continue";
-            this.button4.UseVisualStyleBackColor = true;
+            this.ReservationListview.Location = new System.Drawing.Point(30, 39);
+            this.ReservationListview.Name = "ReservationListview";
+            this.ReservationListview.Size = new System.Drawing.Size(919, 269);
+            this.ReservationListview.TabIndex = 7;
+            this.ReservationListview.UseCompatibleStateImageBehavior = false;
             // 
             // reservationList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 471);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.listBox1);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(974, 621);
+            this.Controls.Add(this.ReservationListview);
+            this.Controls.Add(this.HomepageB);
+            this.Controls.Add(this.CancelB);
+            this.Controls.Add(this.BookingIDLabel);
+            this.Controls.Add(this.IDTBox);
+            this.Controls.Add(this.DeleteB);
+            this.Controls.Add(this.EditB);
             this.Name = "reservationList";
             this.Text = "reservationList";
             this.ResumeLayout(false);
@@ -120,13 +128,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button EditB;
+        private System.Windows.Forms.Button DeleteB;
+        private System.Windows.Forms.TextBox IDTBox;
+        private System.Windows.Forms.Label BookingIDLabel;
+        private System.Windows.Forms.Button CancelB;
+        private System.Windows.Forms.Button HomepageB;
+        private System.Windows.Forms.ListView ReservationListview;
     }
 }

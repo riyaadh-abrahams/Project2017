@@ -16,11 +16,21 @@ namespace Project2017.PresentationLayer
     {
         public bool dateChooserFormClosed = false;
         private BookingController myBooking;
+        private CustomerController customerController;
+        private Form1 personal;
+        private Homepage goHome;
+        private Overview overView;
 
-        public DateChooser(BookingController booking)
+
+        public DateChooser(Overview overview)
         {
             InitializeComponent();
-            myBooking = booking;
+            this.overView = overview;
+            customerController = overview.customerController;
+            myBooking = overView.bookingController;
+
+            ContinueB.Enabled = false;
+            
         }
 
         private void checkAvailabilityButton_Click(object sender, EventArgs e)
@@ -34,11 +44,56 @@ namespace Project2017.PresentationLayer
             if (canIbook)
             {
                 canIBookLable.Text = "Rooms Available";
+                ContinueB.Enabled = true;
+
             }
             else
             {
                 canIBookLable.Text = "Not Enough Rooms Available";
+                //Let's add ui refresh
             }
         }
+
+        #region Launch other forms
+
+
+        private void ContinueB_Click(object sender, EventArgs e)
+        {
+            if (overView.personal == null)
+            {
+                overView.CreatePersonalForm();
+            }
+            if (overView.personal.form1Closed)
+            {
+                overView.CreatePersonalForm();
+            }
+
+            overView.personal.Show();
+        }
+
+        private void CancelB_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
+
+        /*private void CreateHomePageForm() {
+            goHome = new Homepage(customerController, );
+            goHome.StartPosition = FormStartPosition.CenterParent;
+            dateChooserFormClosed = true;
+        }
+        
+
+        private void CancelB_Click(object sender, EventArgs e)
+        {
+            if(goHome ==null) {
+                CreateHomePageForm();
+            }
+            if(goHome.HomepageFormClosed) {
+                CreateHomePageForm();
+            }
+
+            goHome.Show();
+        }*/
     }
 }

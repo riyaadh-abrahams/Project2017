@@ -8,6 +8,7 @@ namespace Project2017.BusinessLayer.Entities
 {
     public class PaymentDetail
     {
+
         public string PaymentID { get; set; }
         public string CreditCardNumber { get; set; }
         public int ExpiryMonth { get; set; }

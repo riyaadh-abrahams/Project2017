@@ -20,7 +20,7 @@ namespace Project2017.DatabaseLayer
             private string sqlLocal1 = "SELECT * FROM Bookings";
 
 
-        public string generateAVQuery(DateTime arrivalDate, DateTime departureDate)
+        public string generateAVQuery(DateTime arrivalDate, DateTime departureDate, int numRooms)
         {
             string startDate=arrivalDate.ToString("dd/MM/yyyy",
                                 CultureInfo.InvariantCulture);
@@ -28,14 +28,14 @@ namespace Project2017.DatabaseLayer
             int duration = (int)(departureDate - arrivalDate).TotalDays;
 
             string s = String.Format(@"select dateadd(dd,i,CONVERT(datetime, '{0}', 103)) as The_Date
-                                        , 2 - sum(NumberOfRooms) as RoomsAvailable
+                                        , {2} - sum(NumberOfRooms) as RoomsAvailable
                                         from Bookings, IntegerTable
                                         where i between 0 and {1}
                                         and ArrivalDate <= dateadd(dd, i, CONVERT(datetime, '{0}', 103))
                                         and DepartureDate > dateadd(dd, i, CONVERT(datetime, '{0}', 103))
                                         group by i
                                         order by RoomsAvailable
-                                        ",startDate,duration);
+                                        ",startDate,duration,numRooms);
 
             return s;
         }
@@ -62,14 +62,21 @@ namespace Project2017.DatabaseLayer
 
             }
 
-            public bool roomsAV(DateTime arrivalDate, DateTime departureDate, int numberOfRooms)
+            public bool roomsAV(DateTime arrivalDate, DateTime departureDate, int numberOfRoomsInHotel, int numRooms)
             {
-                FillDataSetAV(generateAVQuery(arrivalDate, departureDate), table1);
+                FillDataSetAV(generateAVQuery(arrivalDate, departureDate, numberOfRoomsInHotel), table1);
                 if (dsAvailable.Tables[table1].Rows.Count == 0)
                 {
-                    return true;
+                    if (numRooms < numberOfRoomsInHotel)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
-                else if (Convert.ToInt32(dsAvailable.Tables[table1].Rows[0]["RoomsAvailable"])>numberOfRooms)
+                else if (Convert.ToInt32(dsAvailable.Tables[table1].Rows[0]["RoomsAvailable"])>=numRooms)
                 {
                     return true;
                 }

@@ -80,6 +80,21 @@ namespace Project2017.BusinessLayer.Controllers
             return Customers[index];  // this is the one!  
         }
 
+        public bool Contains(string CustomerID)
+        {
+            int index = 0;
+            bool found = (Customers[index].CustomerID == CustomerID);  //check if it is the first student
+            int count = Customers.Count;
+
+            while (!(found) && (index < Customers.Count - 1))  //if not "this" student and you are not at the end of the list 
+            {
+                index = index + 1;
+                found = (Customers[index].CustomerID == CustomerID);   // this will be TRUE if found
+            }
+
+            return found; 
+        }
+
         public int FindIndex(Customer myCustomer)
         {
             int counter = 0;

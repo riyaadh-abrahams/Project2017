@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DateChooser));
             this.arrivalDatePicker = new System.Windows.Forms.DateTimePicker();
             this.numRoomsUpDown = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.cancelButton1 = new System.Windows.Forms.Button();
+            this.CancelB = new System.Windows.Forms.Button();
             this.checkAvailabilityButton = new System.Windows.Forms.Button();
-            this.nextButton1 = new System.Windows.Forms.Button();
+            this.ContinueB = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.departurelDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,9 +55,19 @@
             // numRoomsUpDown
             // 
             this.numRoomsUpDown.Location = new System.Drawing.Point(108, 224);
+            this.numRoomsUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numRoomsUpDown.Name = "numRoomsUpDown";
             this.numRoomsUpDown.Size = new System.Drawing.Size(200, 20);
             this.numRoomsUpDown.TabIndex = 3;
+            this.numRoomsUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label2
             // 
@@ -68,15 +79,16 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Arrival Date";
             // 
-            // cancelButton1
+            // CancelB
             // 
-            this.cancelButton1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton1.Location = new System.Drawing.Point(542, 383);
-            this.cancelButton1.Name = "cancelButton1";
-            this.cancelButton1.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton1.TabIndex = 8;
-            this.cancelButton1.Text = "Cancel";
-            this.cancelButton1.UseVisualStyleBackColor = true;
+            this.CancelB.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelB.Location = new System.Drawing.Point(542, 383);
+            this.CancelB.Name = "CancelB";
+            this.CancelB.Size = new System.Drawing.Size(75, 23);
+            this.CancelB.TabIndex = 8;
+            this.CancelB.Text = "Cancel";
+            this.CancelB.UseVisualStyleBackColor = true;
+            this.CancelB.Click += new System.EventHandler(this.CancelB_Click);
             // 
             // checkAvailabilityButton
             // 
@@ -89,15 +101,16 @@
             this.checkAvailabilityButton.UseVisualStyleBackColor = true;
             this.checkAvailabilityButton.Click += new System.EventHandler(this.checkAvailabilityButton_Click);
             // 
-            // nextButton1
+            // ContinueB
             // 
-            this.nextButton1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nextButton1.Location = new System.Drawing.Point(639, 383);
-            this.nextButton1.Name = "nextButton1";
-            this.nextButton1.Size = new System.Drawing.Size(75, 23);
-            this.nextButton1.TabIndex = 10;
-            this.nextButton1.Text = "Next";
-            this.nextButton1.UseVisualStyleBackColor = true;
+            this.ContinueB.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ContinueB.Location = new System.Drawing.Point(639, 383);
+            this.ContinueB.Name = "ContinueB";
+            this.ContinueB.Size = new System.Drawing.Size(75, 23);
+            this.ContinueB.TabIndex = 10;
+            this.ContinueB.Text = "Continue";
+            this.ContinueB.UseVisualStyleBackColor = true;
+            this.ContinueB.Click += new System.EventHandler(this.ContinueB_Click);
             // 
             // label1
             // 
@@ -142,14 +155,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(795, 463);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(885, 567);
             this.Controls.Add(this.canIBookLable);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.departurelDatePicker);
-            this.Controls.Add(this.nextButton1);
+            this.Controls.Add(this.ContinueB);
             this.Controls.Add(this.checkAvailabilityButton);
-            this.Controls.Add(this.cancelButton1);
+            this.Controls.Add(this.CancelB);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.numRoomsUpDown);
             this.Controls.Add(this.arrivalDatePicker);
@@ -166,9 +181,9 @@
         private System.Windows.Forms.DateTimePicker arrivalDatePicker;
         private System.Windows.Forms.NumericUpDown numRoomsUpDown;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button cancelButton1;
+        private System.Windows.Forms.Button CancelB;
         private System.Windows.Forms.Button checkAvailabilityButton;
-        private System.Windows.Forms.Button nextButton1;
+        private System.Windows.Forms.Button ContinueB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker departurelDatePicker;
         private System.Windows.Forms.Label label3;

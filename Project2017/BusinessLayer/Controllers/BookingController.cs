@@ -107,7 +107,7 @@ namespace Project2017.BusinessLayer.Controllers
 
         public bool CanIBook(DateTime arrivalDate, DateTime departureDate, int numberOfRooms)
         {
-            return BookingDB.roomsAV(arrivalDate, departureDate, numberOfRooms);
+            return BookingDB.roomsAV(arrivalDate, departureDate, 3 ,numberOfRooms);
         }
 
         #endregion
