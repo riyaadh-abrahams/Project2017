@@ -19,11 +19,13 @@ namespace Project2017.PresentationLayer
         private CustomerController customerController;
         private Customer customer;
         private Collection<Customer> customers;
+        Overview overView;
 
-        public SummaryPage(CustomerController custCont)
+        public SummaryPage(Overview overview)
         {
             InitializeComponent();
-            customerController = custCont;
+            overView = overview;
+            customerController = overView.customerController;
             customers = customerController.AllCustomers;
 
             //Come back later for this
@@ -93,5 +95,11 @@ namespace Project2017.PresentationLayer
             }
         }
         #endregion
+
+        private void SummaryPage_Load(object sender, EventArgs e)
+        {
+            nameL.Text = overView.myCustomer.Name;
+            snameL.Text = overView.myCustomer.Surname;
+        }
     }
 }

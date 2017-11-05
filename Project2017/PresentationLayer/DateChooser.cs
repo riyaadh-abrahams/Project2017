@@ -20,6 +20,8 @@ namespace Project2017.PresentationLayer
         private Form1 personal;
         private Homepage goHome;
         private Overview overView;
+        private decimal charge;
+        private decimal deposit;
 
 
         public DateChooser(Overview overview)
@@ -45,14 +47,17 @@ namespace Project2017.PresentationLayer
             {
                 if (departureDate > arrivalDate)
                 {
-                    decimal charge = overView.bookingController.CalculateCharge(arrivalDatePicker.Value, departurelDatePicker.Value);
-                    canIBookLable.Text = "Rooms Available. Charge = " + charge;
+                    charge = overView.bookingController.CalculateCharge(arrivalDatePicker.Value, departurelDatePicker.Value, (int)numRoomsUpDown.Value);
+                    deposit = charge*0.1m;
+                    canIBookLable.Text = "Rooms Available. Charge = R" + charge;
+                    depositLabel.Text = "Deposit (10%): R" + deposit;
                     ContinueB.Enabled = true;
                 }
                 else
                 {
                     canIBookLable.Text = "Invaid Dates!";
                     ContinueB.Enabled = false;
+                    depositLabel.Text = "";
                 }
                 
             }
@@ -60,6 +65,7 @@ namespace Project2017.PresentationLayer
             {
                 canIBookLable.Text = "Not Enough Rooms Available";
                 ContinueB.Enabled = false;
+                depositLabel.Text = "";
                 //Let's add ui refresh
             }
         }
@@ -80,9 +86,11 @@ namespace Project2017.PresentationLayer
 
             //Create Booking
             overView.myBooking = new Booking();
+            overView.myBooking.BookingID = overView.RandomString(9);
             overView.myBooking.ArrivalDate = arrivalDatePicker.Value;
             overView.myBooking.DepartureDate = departurelDatePicker.Value;
             overView.myBooking.NumberOfRooms = (int)numRoomsUpDown.Value;
+            overView.myBooking.DepositAmount = deposit;
 
             overView.personal.Show();
         }

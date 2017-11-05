@@ -25,18 +25,19 @@ namespace Project2017.PresentationLayer
         public Form1 personal { get; set; }
         public paymentform payinglaunch { get; set; }
         public SummaryPage summary { get; set; }
+        public PaymentDetailController paymentDetailController { get; set; }
 
         public Booking myBooking { get; set; }
         public Customer myCustomer { get; set; }
-        public PaymentDetail PaymentDetail { get; set; }
-        //private PaymentDetailController paymentDetailController;
+        public PaymentDetail myPaymentDetail { get; set; }
+        
 
         public Overview()
         {
             InitializeComponent();
             customerController = new CustomerController();
             bookingController = new BookingController();
-            //paymentDetailController = new PaymentDetailController();
+            paymentDetailController = new PaymentDetailController();
 
             if (goHome == null)
             {
@@ -210,13 +211,24 @@ namespace Project2017.PresentationLayer
 
         public void CreateSummaryForm()
         {
-            summary = new SummaryPage(customerController);
+            summary = new SummaryPage(this);
             summary.MdiParent = this;
             summary.StartPosition = FormStartPosition.CenterParent;
             summary.FormBorderStyle = FormBorderStyle.None;
             summary.Dock = DockStyle.Fill;
         }
 
+        #endregion
+
+        #region Utility
+
+        private static Random random = new Random();
+        public string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
         #endregion
     }
 }

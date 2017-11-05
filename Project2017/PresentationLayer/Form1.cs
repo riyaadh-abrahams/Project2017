@@ -27,7 +27,7 @@ namespace Project2017
         private Customer customer;
         private CustomerController customerController;
         private Overview overView;
-        private FormStates state;
+        public FormStates state { get; set; }
 
         public Form1(Overview overView)
         {
@@ -50,14 +50,18 @@ namespace Project2017
                 label1.Text = "Guest Found";
                 PopulateTextBoxes(customer);
                 state = FormStates.Edit;
+                overView.myCustomer = customerController.Find(Identity.Text);
                 ContinueB.Enabled = true;
             }
             else
             {
                 ClearAll();
                 label1.Text = "Guest Not Found! Add new Guest";
+                overView.myCustomer = new Customer();
                 state = FormStates.Add;
+                PopulateObject();
                 ContinueB.Enabled = true;
+                
             }
             
         }
@@ -74,7 +78,7 @@ namespace Project2017
         {
 
             ClearAll();
-
+            overView.myBooking.CustomerID = overView.myCustomer.CustomerID;
             overView.CreatePaymentForm();
             overView.payinglaunch.Show();
 
@@ -116,8 +120,17 @@ namespace Project2017
             AddressTBox.Text = myCustomer.Address;
             phoneTBox.Text = myCustomer.Phone;
 
+        }
+
+        private void PopulateObject()
+        {
+            overView.myCustomer.Name = FirstTBox.Text;
+            overView.myCustomer.Surname = LastTBox.Text;
+            overView.myCustomer.EmailAddress = EmailTBox.Text;
+            overView.myCustomer.Address = AddressTBox.Text;
+            overView.myCustomer.Phone = phoneTBox.Text;
 
         }
-            #endregion
-        }
+        #endregion
+    }
 }

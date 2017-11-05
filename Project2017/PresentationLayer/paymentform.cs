@@ -33,6 +33,10 @@ namespace Project2017.PresentationLayer
             this.overView = overView;
             customerController = overView.customerController;
             ShowAll(true, paymentType.CreditCard);
+
+            ExpiryDatePicker.Format = DateTimePickerFormat.Custom;
+            ExpiryDatePicker.CustomFormat = "MM/yyyy";
+            ExpiryDatePicker.ShowUpDown = true;
         }
         #region Radio Buttons
         private void CardPaymentRadio_CheckedChanged(object sender, EventArgs e)
@@ -68,6 +72,23 @@ namespace Project2017.PresentationLayer
         }
         private void ContinueB_Click(object sender, EventArgs e)
         {
+            if (paytype == paymentType.Paylater)
+            {
+                overView.myBooking.DepositPaid = false;
+                overView.myBooking.PaymentID = null;
+            }
+            else
+            {
+                overView.myBooking.DepositPaid = true;
+                overView.myPaymentDetail = new PaymentDetail();
+                overView.myPaymentDetail.CreditCardNumber = CardNumberTBox.Text;
+                overView.myPaymentDetail.ExpiryMonth = ExpiryDatePicker.Value.Month;
+                overView.myPaymentDetail.ExpiryMonth = ExpiryDatePicker.Value.Year;
+                overView.myPaymentDetail.CVC = CVSTBox.Text;
+                overView.myPaymentDetail.PaymentID = overView.RandomString(9);
+                overView.myBooking.PaymentID = overView.myPaymentDetail.PaymentID;
+
+            }
 
             if(overView.summary == null)
             {

@@ -127,7 +127,7 @@ namespace Project2017.BusinessLayer.Controllers
             return (int)(end - start).TotalDays ;
         }
 
-        public decimal CalculateCharge(DateTime s, DateTime e)
+        public decimal CalculateCharge(DateTime s, DateTime e, int numRooms)
         {
             int low = inclusiveDays(DateTime.ParseExact("01/12/2017", "dd/MM/yyyy", CultureInfo.InvariantCulture),
                         DateTime.ParseExact("07/12/2017", "dd/MM/yyyy", CultureInfo.InvariantCulture),
@@ -141,7 +141,7 @@ namespace Project2017.BusinessLayer.Controllers
                         DateTime.ParseExact("31/12/2017", "dd/MM/yyyy", CultureInfo.InvariantCulture),
                         s, e);
 
-            return (low * 500) + (mid * 750) + (high * 995);
+            return (low * 500)*numRooms + (mid * 750)*numRooms + (high * 995)*numRooms;
         }
 
         #endregion
