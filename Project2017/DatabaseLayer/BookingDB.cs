@@ -147,7 +147,15 @@ namespace Project2017.DatabaseLayer
                         myBooking.DepartureDate = Convert.ToDateTime(myRow["DepartureDate"]);
                         myBooking.DepositAmount = Convert.ToDecimal(myRow["DepositAmount"]);
                         myBooking.DepositPaid = Convert.ToBoolean(myRow["DepositPaid"]);
-                        myBooking.PaymentID = Convert.ToString(myRow["PaymentID"]);
+                        
+                        if (myRow["PaymentID"] == System.DBNull.Value)
+                        {
+                            myBooking.PaymentID = null;
+                        }
+                        else
+                        {
+                            myBooking.PaymentID = Convert.ToString(myRow["PaymentID"]);
+                        }
 
                     bookings.Add(myBooking);
                     }
@@ -166,13 +174,21 @@ namespace Project2017.DatabaseLayer
                 aRow["DepartureDate"] = myBooking.DepartureDate;
                 aRow["DepositAmount"] = myBooking.DepositAmount;
                 aRow["DepositPaid"] = myBooking.DepositPaid;
-                aRow["PaymentID"] = myBooking.PaymentID;
+
+                if (myBooking.PaymentID == null)
+                {
+                    aRow["PaymentID"] = System.DBNull.Value;
+                }
+                else
+                {
+                    aRow["PaymentID"] = myBooking.PaymentID;
+                }
 
         }
 
 
-            //The FindRow method finds the row for a specific Booking(by BookingID)  in a specific table
-            private int FindRow(Booking myBooking)
+        //The FindRow method finds the row for a specific Booking(by BookingID)  in a specific table
+        private int FindRow(Booking myBooking)
             {
                 int rowIndex = 0;
                 DataRow myRow;
@@ -283,7 +299,7 @@ namespace Project2017.DatabaseLayer
 
             private void Create_UPDATE_Command(Booking myBooking)
             {
-                daMain.UpdateCommand = new SqlCommand("UPDATE Bookings SET CustomerID =@CustomerID, NumberOfRooms =@NumberOfRooms, ArrivalDate =@ArrivalDate, DepartureDate = @DepartureDate, DepositAmount = @DepositAmount, DepositPaid = @DepositPaid, PaymentID = @PaymentID " + "WHERE BookingID = @Original_ID", cnMain);
+                daMain.UpdateCommand = new SqlCommand("UPDATE Bookings SET CustomerID =@CustomerID, NumberOfRooms =@NumberOfRooms, ArrivalDate =@ArrivalDate, DepartureDate = @DepartureDate, DepositAmount = @DepositAmount, DepositPaid = @DepositPaid, PaymentID = @PaymentID" + "WHERE BookingID = @Original_ID", cnMain);
                 Build_UPDATE_Parameters(myBooking);
             }
 

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Project2017.BusinessLayer.Controllers;
 using Project2017.BusinessLayer.Entities;
 using Project2017.PresentationLayer;
+using Project2017.DatabaseLayer;
 
 namespace Project2017
 {
@@ -28,6 +29,8 @@ namespace Project2017
         private CustomerController customerController;
         private Overview overView;
         public FormStates state { get; set; }
+        public DB.DBOperation dbState;
+        public string idEdit;
 
         public Form1(Overview overView)
         {
@@ -35,6 +38,7 @@ namespace Project2017
             this.overView = overView;
             customerController = overView.customerController;
             state = FormStates.Add;
+            dbState = DB.DBOperation.Add;
             ContinueB.Enabled = false;
 
 
@@ -47,19 +51,23 @@ namespace Project2017
             customer = customerController.Find(Identity.Text);
             if (customerController.Contains(Identity.Text))
             {
+                idEdit=customer.CustomerID;
                 label1.Text = "Guest Found";
+                overView.myCustomer = new Customer();
+                overView.myCustomer.CustomerID = Identity.Text;
                 PopulateTextBoxes(customer);
                 state = FormStates.Edit;
-                overView.myCustomer = customerController.Find(Identity.Text);
+                dbState = DB.DBOperation.Edit;
+                
                 ContinueB.Enabled = true;
             }
             else
             {
-                ClearAll();
                 label1.Text = "Guest Not Found! Add new Guest";
                 overView.myCustomer = new Customer();
                 state = FormStates.Add;
-                PopulateObject();
+                dbState = DB.DBOperation.Add;
+                //PopulateObject();
                 ContinueB.Enabled = true;
                 
             }
@@ -76,8 +84,8 @@ namespace Project2017
 
         private void ContinueB_Click(object sender, EventArgs e)
         {
-
-            ClearAll();
+            PopulateObject();
+            //ClearAll();
             overView.myBooking.CustomerID = overView.myCustomer.CustomerID;
             overView.CreatePaymentForm();
             overView.payinglaunch.Show();
@@ -124,6 +132,10 @@ namespace Project2017
 
         private void PopulateObject()
         {
+            if (state == FormStates.Add)
+            {
+                overView.myCustomer.CustomerID = Identity.Text;
+            }
             overView.myCustomer.Name = FirstTBox.Text;
             overView.myCustomer.Surname = LastTBox.Text;
             overView.myCustomer.EmailAddress = EmailTBox.Text;

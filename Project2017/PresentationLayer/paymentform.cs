@@ -122,24 +122,20 @@ namespace Project2017.PresentationLayer
             if ((paytype == paymentType.CreditCard))
             {
                 CardLabel.Visible = value;
-                CardTypeLabel.Visible = value;
                 CVSLabel.Visible = value;
                 ExpiryLabel.Visible = value;
 
                 CardNumberTBox.Visible = value;
-                CardTypeComboBox.Visible = value;
                 CVSTBox.Visible = value;
                 ExpiryDatePicker.Visible = value;
             }
             else
             {
                 CardLabel.Visible = false;
-                CardTypeLabel.Visible = false;
                 CVSLabel.Visible = false;
                 ExpiryLabel.Visible = false;
 
                 CardNumberTBox.Visible = false;
-                CardTypeComboBox.Visible = false;
                 CVSTBox.Visible = false;
                 ExpiryDatePicker.Visible = false;
             }
@@ -150,7 +146,6 @@ namespace Project2017.PresentationLayer
         {
             CardNumberTBox.Text = "";
             CVSTBox.Text = "";
-            CardTypeComboBox.Items.Clear();
             //piryDatePicker.
             // I am not sure of the date time picker
 

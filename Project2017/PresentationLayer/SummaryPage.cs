@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Collections.ObjectModel;
 using Project2017.BusinessLayer.Entities;
 using Project2017.BusinessLayer.Controllers;
+using Project2017.DatabaseLayer;
 
 namespace Project2017.PresentationLayer
 {
@@ -63,7 +64,6 @@ namespace Project2017.PresentationLayer
         public void setUpCustomerListView()
         {
             ListViewItem customerDetails;
-            Customer cust;
 
             CustomerListView.Clear();
 
@@ -100,6 +100,55 @@ namespace Project2017.PresentationLayer
         {
             nameL.Text = overView.myCustomer.Name;
             snameL.Text = overView.myCustomer.Surname;
+            eAddL.Text = overView.myCustomer.EmailAddress;
+            addL.Text = overView.myCustomer.Address;
+            phoneL.Text = overView.myCustomer.Phone;
+
+            ArrivalL.Text = overView.myBooking.ArrivalDate.ToString();
+            DepartureL.Text = overView.myBooking.DepartureDate.ToString();
+            NRoomL.Text = overView.myBooking.NumberOfRooms.ToString();
+            TchargeL.Text = (overView.myBooking.DepositAmount * 10).ToString();
+            DepAmountL.Text = overView.myBooking.DepositAmount.ToString();
+
+            if (overView.myBooking.DepositPaid)
+            {
+                paidL.Text = "Yes (CC No. ends with: ..." + overView.myPaymentDetail.CreditCardNumber.Substring(overView.myPaymentDetail.CreditCardNumber.Length - 4) + ")";
+            }
+            else
+            {
+                paidL.Text = "Pay Later";
+            }
+
+            
+
+        }
+
+        private void ConfirmB_Click(object sender, EventArgs e)
+        {
+            //DATABASE STUFF
+            overView.customerController.DataMaintenance(overView.myCustomer, overView.personal.dbState);
+            overView.bookingController.DataMaintenance(overView.myBooking, DB.DBOperation.Add);
+
+           
+            if (overView.myPaymentDetail != null)
+            {
+                overView.paymentDetailController.DataMaintenance(overView.myPaymentDetail, DB.DBOperation.Add);
+            }
+
+            overView.customerController.FinalizeChanges(overView.myCustomer);
+            overView.bookingController.FinalizeChanges(overView.myBooking);
+            if (overView.myPaymentDetail != null)
+            {
+                overView.paymentDetailController.FinalizeChanges(overView.myPaymentDetail);
+            }
+
+
+            //RESET EVERYTHING
+            overView.myBooking = null;
+            overView.myCustomer = null;
+            overView.myPaymentDetail = null;
+
+            MessageBox.Show("YOU WIN");
         }
     }
 }

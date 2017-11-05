@@ -171,10 +171,10 @@ namespace Project2017.DatabaseLayer
             param = new SqlParameter("@Address", SqlDbType.NVarChar, 15, "Address");
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@EmailAddress", SqlDbType.NVarChar, 1, "EmailAddress");
+            param = new SqlParameter("@EmailAddress", SqlDbType.NVarChar, 100, "EmailAddress");
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@Phone", SqlDbType.NVarChar , 1, "Phone");
+            param = new SqlParameter("@Phone", SqlDbType.NVarChar , 100, "Phone");
             daMain.InsertCommand.Parameters.Add(param);
         }
 
@@ -198,11 +198,11 @@ namespace Project2017.DatabaseLayer
             param.SourceVersion = DataRowVersion.Current;
             daMain.UpdateCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@EmailAddress", SqlDbType.NVarChar, 1, "EmailAddress");
+            param = new SqlParameter("@EmailAddress", SqlDbType.NVarChar, 100, "EmailAddress");
             param.SourceVersion = DataRowVersion.Current;
             daMain.UpdateCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@Phone", SqlDbType.NVarChar, 1, "Phone");
+            param = new SqlParameter("@Phone", SqlDbType.NVarChar, 100, "Phone");
             param.SourceVersion = DataRowVersion.Current;
             daMain.UpdateCommand.Parameters.Add(param);
 
@@ -223,13 +223,13 @@ namespace Project2017.DatabaseLayer
         private void Create_INSERT_Command(Customer myCustomer)
         {
             //Create the command that must be used to insert values into the Books table..
-            daMain.InsertCommand = new SqlCommand("INSERT into Customers (CustomerID, Name, Surname, Address, EmailAddress, NumberOfGuests) VALUES (@CustomerID, @Name, @Surname, @Address, @EmailAddress, @Phone)", cnMain);
+            daMain.InsertCommand = new SqlCommand("INSERT into Customers (CustomerID, Name, Surname, Address, EmailAddress, Phone) VALUES (@CustomerID, @Name, @Surname, @Address, @EmailAddress, @Phone)", cnMain);
             Build_INSERT_Parameters(myCustomer);
         }
 
         private void Create_UPDATE_Command(Customer myCustomer)
         {
-            daMain.UpdateCommand = new SqlCommand("UPDATE Customers SET Name =@Name, Surname =@Surname, Address =@Address1, EmailAddress = @EmailAddress, NumberOfGuests = @Phone " + "WHERE CustomerID = @Original_ID", cnMain);
+            daMain.UpdateCommand = new SqlCommand("UPDATE Customers SET Name =@Name, Surname =@Surname, Address =@Address, EmailAddress = @EmailAddress, Phone = @Phone " + "WHERE CustomerID = @Original_ID", cnMain);
             Build_UPDATE_Parameters(myCustomer);
         }
 

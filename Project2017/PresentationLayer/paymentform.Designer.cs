@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(paymentform));
             this.CardPaymentRadio = new System.Windows.Forms.RadioButton();
             this.PayLaterRadio = new System.Windows.Forms.RadioButton();
-            this.CardTypeLabel = new System.Windows.Forms.Label();
             this.ExpiryLabel = new System.Windows.Forms.Label();
             this.CardLabel = new System.Windows.Forms.Label();
             this.CVSLabel = new System.Windows.Forms.Label();
@@ -40,7 +39,6 @@
             this.CardNumberTBox = new System.Windows.Forms.TextBox();
             this.CVSTBox = new System.Windows.Forms.TextBox();
             this.ExpiryDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.CardTypeComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // CardPaymentRadio
@@ -66,16 +64,6 @@
             this.PayLaterRadio.Text = "Pay later";
             this.PayLaterRadio.UseVisualStyleBackColor = true;
             this.PayLaterRadio.CheckedChanged += new System.EventHandler(this.PayLaterRadio_CheckedChanged);
-            // 
-            // CardTypeLabel
-            // 
-            this.CardTypeLabel.AutoSize = true;
-            this.CardTypeLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CardTypeLabel.Location = new System.Drawing.Point(268, 102);
-            this.CardTypeLabel.Name = "CardTypeLabel";
-            this.CardTypeLabel.Size = new System.Drawing.Size(72, 16);
-            this.CardTypeLabel.TabIndex = 7;
-            this.CardTypeLabel.Text = "Card Type";
             // 
             // ExpiryLabel
             // 
@@ -134,7 +122,7 @@
             // 
             this.CardNumberTBox.Location = new System.Drawing.Point(75, 122);
             this.CardNumberTBox.Name = "CardNumberTBox";
-            this.CardNumberTBox.Size = new System.Drawing.Size(100, 20);
+            this.CardNumberTBox.Size = new System.Drawing.Size(191, 20);
             this.CardNumberTBox.TabIndex = 13;
             // 
             // CVSTBox
@@ -151,14 +139,6 @@
             this.ExpiryDatePicker.Size = new System.Drawing.Size(147, 20);
             this.ExpiryDatePicker.TabIndex = 15;
             // 
-            // CardTypeComboBox
-            // 
-            this.CardTypeComboBox.FormattingEnabled = true;
-            this.CardTypeComboBox.Location = new System.Drawing.Point(271, 120);
-            this.CardTypeComboBox.Name = "CardTypeComboBox";
-            this.CardTypeComboBox.Size = new System.Drawing.Size(69, 21);
-            this.CardTypeComboBox.TabIndex = 16;
-            // 
             // paymentform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,7 +146,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(699, 448);
-            this.Controls.Add(this.CardTypeComboBox);
             this.Controls.Add(this.ExpiryDatePicker);
             this.Controls.Add(this.CVSTBox);
             this.Controls.Add(this.CardNumberTBox);
@@ -175,7 +154,6 @@
             this.Controls.Add(this.CVSLabel);
             this.Controls.Add(this.CardLabel);
             this.Controls.Add(this.ExpiryLabel);
-            this.Controls.Add(this.CardTypeLabel);
             this.Controls.Add(this.PayLaterRadio);
             this.Controls.Add(this.CardPaymentRadio);
             this.Name = "paymentform";
@@ -189,7 +167,6 @@
 
         private System.Windows.Forms.RadioButton CardPaymentRadio;
         private System.Windows.Forms.RadioButton PayLaterRadio;
-        private System.Windows.Forms.Label CardTypeLabel;
         private System.Windows.Forms.Label ExpiryLabel;
         private System.Windows.Forms.Label CardLabel;
         private System.Windows.Forms.Label CVSLabel;
@@ -198,6 +175,5 @@
         private System.Windows.Forms.TextBox CardNumberTBox;
         private System.Windows.Forms.TextBox CVSTBox;
         private System.Windows.Forms.DateTimePicker ExpiryDatePicker;
-        private System.Windows.Forms.ComboBox CardTypeComboBox;
     }
 }

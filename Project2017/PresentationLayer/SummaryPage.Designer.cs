@@ -44,6 +44,18 @@
             this.phoneL = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.ArrivalL = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.DepartureL = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.NRoomL = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.TchargeL = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.DepAmountL = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.paidL = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CancelB
@@ -65,6 +77,7 @@
             this.ConfirmB.TabIndex = 2;
             this.ConfirmB.Text = "Confirm";
             this.ConfirmB.UseVisualStyleBackColor = true;
+            this.ConfirmB.Click += new System.EventHandler(this.ConfirmB_Click);
             // 
             // CustomerListView
             // 
@@ -179,7 +192,7 @@
             this.phoneL.AutoSize = true;
             this.phoneL.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.phoneL.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneL.Location = new System.Drawing.Point(84, 151);
+            this.phoneL.Location = new System.Drawing.Point(84, 156);
             this.phoneL.Name = "phoneL";
             this.phoneL.Size = new System.Drawing.Size(37, 14);
             this.phoneL.TabIndex = 17;
@@ -190,7 +203,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label9.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(36, 151);
+            this.label9.Location = new System.Drawing.Point(36, 156);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(45, 14);
             this.label9.TabIndex = 16;
@@ -201,11 +214,143 @@
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label10.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(36, 187);
+            this.label10.Location = new System.Drawing.Point(36, 200);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(121, 18);
             this.label10.TabIndex = 18;
             this.label10.Text = "Booking Details";
+            // 
+            // ArrivalL
+            // 
+            this.ArrivalL.AutoSize = true;
+            this.ArrivalL.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ArrivalL.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ArrivalL.Location = new System.Drawing.Point(84, 228);
+            this.ArrivalL.Name = "ArrivalL";
+            this.ArrivalL.Size = new System.Drawing.Size(37, 14);
+            this.ArrivalL.TabIndex = 20;
+            this.ArrivalL.Text = "Name:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(36, 228);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 14);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Arrival:";
+            // 
+            // DepartureL
+            // 
+            this.DepartureL.AutoSize = true;
+            this.DepartureL.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DepartureL.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DepartureL.Location = new System.Drawing.Point(210, 228);
+            this.DepartureL.Name = "DepartureL";
+            this.DepartureL.Size = new System.Drawing.Size(37, 14);
+            this.DepartureL.TabIndex = 22;
+            this.DepartureL.Text = "Name:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label11.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(144, 228);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(65, 14);
+            this.label11.TabIndex = 21;
+            this.label11.Text = "Departure:";
+            // 
+            // NRoomL
+            // 
+            this.NRoomL.AutoSize = true;
+            this.NRoomL.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.NRoomL.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NRoomL.Location = new System.Drawing.Point(144, 259);
+            this.NRoomL.Name = "NRoomL";
+            this.NRoomL.Size = new System.Drawing.Size(37, 14);
+            this.NRoomL.TabIndex = 24;
+            this.NRoomL.Text = "Name:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label13.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(36, 259);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(111, 14);
+            this.label13.TabIndex = 23;
+            this.label13.Text = "Number Of Rooms:";
+            // 
+            // TchargeL
+            // 
+            this.TchargeL.AutoSize = true;
+            this.TchargeL.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.TchargeL.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TchargeL.Location = new System.Drawing.Point(120, 291);
+            this.TchargeL.Name = "TchargeL";
+            this.TchargeL.Size = new System.Drawing.Size(37, 14);
+            this.TchargeL.TabIndex = 26;
+            this.TchargeL.Text = "Name:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label15.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(37, 291);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(79, 14);
+            this.label15.TabIndex = 25;
+            this.label15.Text = "Total Charge:";
+            // 
+            // DepAmountL
+            // 
+            this.DepAmountL.AutoSize = true;
+            this.DepAmountL.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DepAmountL.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DepAmountL.Location = new System.Drawing.Point(314, 291);
+            this.DepAmountL.Name = "DepAmountL";
+            this.DepAmountL.Size = new System.Drawing.Size(37, 14);
+            this.DepAmountL.TabIndex = 28;
+            this.DepAmountL.Text = "Name:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label17.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(186, 291);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(131, 14);
+            this.label17.TabIndex = 27;
+            this.label17.Text = "Deposit Amount (10%):";
+            // 
+            // paidL
+            // 
+            this.paidL.AutoSize = true;
+            this.paidL.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.paidL.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paidL.Location = new System.Drawing.Point(120, 324);
+            this.paidL.Name = "paidL";
+            this.paidL.Size = new System.Drawing.Size(37, 14);
+            this.paidL.TabIndex = 30;
+            this.paidL.Text = "Name:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label19.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(36, 324);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(78, 14);
+            this.label19.TabIndex = 29;
+            this.label19.Text = "Deposit Paid:";
             // 
             // SummaryPage
             // 
@@ -214,6 +359,18 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(751, 476);
+            this.Controls.Add(this.paidL);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.DepAmountL);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.TchargeL);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.NRoomL);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.DepartureL);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.ArrivalL);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.phoneL);
             this.Controls.Add(this.label9);
@@ -253,5 +410,17 @@
         private System.Windows.Forms.Label phoneL;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label ArrivalL;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label DepartureL;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label NRoomL;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label TchargeL;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label DepAmountL;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label paidL;
+        private System.Windows.Forms.Label label19;
     }
 }
