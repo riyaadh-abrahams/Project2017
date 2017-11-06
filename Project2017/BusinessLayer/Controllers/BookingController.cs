@@ -108,7 +108,7 @@ namespace Project2017.BusinessLayer.Controllers
 
         public bool CanIBook(DateTime arrivalDate, DateTime departureDate, int numberOfRooms)
         {
-            return BookingDB.roomsAV(arrivalDate, departureDate, 3 ,numberOfRooms);
+            return BookingDB.roomsAV(arrivalDate, departureDate, Room.numberOfRoomsInHotel ,numberOfRooms);
         }
 
         public int inclusiveDays(DateTime s1, DateTime e1, DateTime s2, DateTime e2)
@@ -130,11 +130,11 @@ namespace Project2017.BusinessLayer.Controllers
         public decimal CalculateCharge(DateTime s, DateTime e, int numRooms)
         {
             int low = inclusiveDays(DateTime.ParseExact("01/12/2017", "dd/MM/yyyy", CultureInfo.InvariantCulture),
-                        DateTime.ParseExact("07/12/2017", "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                        DateTime.ParseExact("08/12/2017", "dd/MM/yyyy", CultureInfo.InvariantCulture),
                         s, e);
 
             int mid = inclusiveDays(DateTime.ParseExact("08/12/2017", "dd/MM/yyyy", CultureInfo.InvariantCulture),
-                        DateTime.ParseExact("15/12/2017", "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                        DateTime.ParseExact("16/12/2017", "dd/MM/yyyy", CultureInfo.InvariantCulture),
                         s, e);
 
             int high = inclusiveDays(DateTime.ParseExact("16/12/2017", "dd/MM/yyyy", CultureInfo.InvariantCulture),

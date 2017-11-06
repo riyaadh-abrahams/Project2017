@@ -23,12 +23,12 @@ namespace Project2017
             Edit = 2,
             Delete = 3
         }
-
+        public FormStates state { get; set; }
         public bool form1Closed = false;
         private Customer customer;
         private CustomerController customerController;
         private Overview overView;
-        public FormStates state { get; set; }
+        
         public DB.DBOperation dbState;
         public string idEdit;
 
@@ -47,6 +47,7 @@ namespace Project2017
 
         private void Check_Click(object sender, EventArgs e)
         {
+            ShowAll(true);
             customer = new Customer();
             customer = customerController.Find(Identity.Text);
             if (customerController.Contains(Identity.Text))
@@ -78,7 +79,6 @@ namespace Project2017
         {
             ClearAll();
             form1Closed = true;
-            ShowAll(false);
             this.Close();
         }
 
@@ -105,14 +105,14 @@ namespace Project2017
         }
         private void ShowAll(bool value)
         {
-            IDLabel.Visible = value;
+            //IDLabel.Visible = value;
             NameLabel.Visible = value;
             SurnameLabel.Visible = value;
             EmailLabel.Visible = value;
             AddressLabel.Visible = value;
             PhoneLabel.Visible = value;
 
-            Identity.Visible = value;
+            //Identity.Visible = value;
             FirstTBox.Visible = value;
             LastTBox.Visible = value;
             AddressTBox.Visible = value;
@@ -144,5 +144,10 @@ namespace Project2017
 
         }
         #endregion
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            ShowAll(false);
+        }
     }
 }

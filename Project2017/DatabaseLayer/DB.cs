@@ -21,6 +21,7 @@ namespace Project2017.DatabaseLayer
         protected DataSet dsMain;
         protected DataSet dsAvailable;
         protected SqlDataAdapter daMain;
+        protected SqlDataAdapter daAvailable;
 
         protected string aSQLstring;  // to be initialised later
         public enum DBOperation
@@ -36,7 +37,8 @@ namespace Project2017.DatabaseLayer
                 //Open a connection & create a new dataset object
                 cnMain = new SqlConnection(strConn);
                 dsMain = new DataSet();
-                dsAvailable = new DataSet();             
+                dsAvailable = new DataSet();
+                        
             }
             catch (SystemException e)
             {
@@ -67,10 +69,10 @@ namespace Project2017.DatabaseLayer
             //fills dataset fresh from the db for a specific table and with a specific Query
             try
             {
-                daMain = new SqlDataAdapter(aSQLstring, cnMain);
+                daAvailable = new SqlDataAdapter(aSQLstring, cnMain);
                 cnMain.Open();
                 //dsMain.Clear();   // need to have all the tables in the dataset
-                daMain.Fill(dsAvailable, aTable);
+                daAvailable.Fill(dsAvailable, aTable);
                 cnMain.Close();
             }
             catch (Exception errObj)

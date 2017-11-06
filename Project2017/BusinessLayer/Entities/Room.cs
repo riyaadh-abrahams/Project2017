@@ -8,7 +8,6 @@ namespace Project2017.BusinessLayer.Entities
 {
     public class Room
     {
-        public string RoomID { get; set; }
-        public int RoomType { get; set; }
+        public const int numberOfRoomsInHotel=10;
     }
 }

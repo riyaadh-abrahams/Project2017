@@ -132,7 +132,7 @@ namespace Project2017.PresentationLayer
 
         private void CreateHomepage() 
         {
-            goHome = new Homepage(customerController, bookingController, this/*, paymentDetailController*/);
+            goHome = new Homepage(this);
             goHome.MdiParent = this;
             goHome.StartPosition = FormStartPosition.CenterParent;
             goHome.FormBorderStyle = FormBorderStyle.None;
@@ -141,7 +141,7 @@ namespace Project2017.PresentationLayer
 
         private void CreateReservationList() 
         {
-            viewList = new reservationList(customerController);
+            viewList = new reservationList(this);
             viewList.MdiParent = this;
             viewList.StartPosition = FormStartPosition.CenterParent;
             viewList.FormBorderStyle = FormBorderStyle.None;
@@ -217,6 +217,21 @@ namespace Project2017.PresentationLayer
             summary.FormBorderStyle = FormBorderStyle.None;
             summary.Dock = DockStyle.Fill;
         }
+
+        public void CreateReservationListForm()
+        {
+
+            viewList = new reservationList(this);
+            viewList.MdiParent = this;
+            viewList.StartPosition = FormStartPosition.CenterParent;
+            //customerListForm.WindowState = FormWindowState.Maximized;
+            viewList.MaximizeBox = false;
+            viewList.MinimizeBox = false;
+            viewList.ShowIcon = false;
+            viewList.FormBorderStyle = FormBorderStyle.None;
+            viewList.Dock = DockStyle.Fill;
+
+    }
 
         #endregion
 

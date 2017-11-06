@@ -16,19 +16,18 @@ namespace Project2017.PresentationLayer
     public partial class Homepage : Form
     {
         private DateChooser dateChooser;
-        private reservationList viewList;
-        private Customer customer;
         private CustomerController customerController;
         private Overview overView;
         private BookingController b;
         //private PaymentDetailController p;
         public bool HomepageFormClosed = false;
-        public Homepage(CustomerController custController, BookingController b, Overview o/*, PaymentDetailController p*/)
+        public Homepage(Overview o)
         {
             InitializeComponent();
-            customerController = custController;
-            this.b = b;
             this.overView = o;
+            customerController = overView.customerController;
+            this.b = overView.bookingController;
+            
             //this.p = p;
         }
 
@@ -75,19 +74,18 @@ namespace Project2017.PresentationLayer
 
         }
 
-        
+
         private void ViewReservations_Click(object sender, EventArgs e)
         {
-            CreateReservationListForm();
+            if (overView.viewList == null)
+            { 
+            overView.CreateReservationListForm();
+            }
+
+            overView.viewList.Show();
         }
 
-        private void CreateReservationListForm()
-        {
-            viewList = new reservationList(customerController);
-            viewList.StartPosition = FormStartPosition.CenterParent;
-            HomepageFormClosed = true;
-            viewList.Show();
-        }
+
 
         private void ExitB_Click(object sender, EventArgs e)
         {

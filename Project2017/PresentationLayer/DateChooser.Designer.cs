@@ -69,6 +69,7 @@
             0,
             0,
             0});
+            this.numRoomsUpDown.ValueChanged += new System.EventHandler(this.numRoomsUpDown_ValueChanged);
             // 
             // label2
             // 

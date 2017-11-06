@@ -16,9 +16,6 @@ namespace Project2017.PresentationLayer
     {
         public bool dateChooserFormClosed = false;
         private BookingController myBooking;
-        private CustomerController customerController;
-        private Form1 personal;
-        private Homepage goHome;
         private Overview overView;
         private decimal charge;
         private decimal deposit;
@@ -28,7 +25,6 @@ namespace Project2017.PresentationLayer
         {
             InitializeComponent();
             this.overView = overview;
-            customerController = overview.customerController;
             myBooking = overView.bookingController;
 
             ContinueB.Enabled = false;
@@ -98,6 +94,11 @@ namespace Project2017.PresentationLayer
         private void CancelB_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void numRoomsUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            ContinueB.Enabled = false;
         }
         #endregion
 

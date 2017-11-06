@@ -50,7 +50,7 @@
             // Check
             // 
             this.Check.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Check.Location = new System.Drawing.Point(241, 58);
+            this.Check.Location = new System.Drawing.Point(241, 60);
             this.Check.Name = "Check";
             this.Check.Size = new System.Drawing.Size(75, 21);
             this.Check.TabIndex = 0;
@@ -216,6 +216,7 @@
             this.Controls.Add(this.Check);
             this.Name = "Form1";
             this.Text = "Personal";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
