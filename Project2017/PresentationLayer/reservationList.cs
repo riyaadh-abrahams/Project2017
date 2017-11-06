@@ -96,6 +96,13 @@ namespace Project2017.PresentationLayer
                 //add more
 
                 ReservationListview.Items.Add(bookingDetails);
+                if (cust.DepositPaid == false
+                    && (cust.ArrivalDate - DateTime.Now).Days < 14)
+                {
+                    ReservationListview.FindItemWithText(cust.BookingID).BackColor = Color.Red;
+                    
+                }
+
             }
 
             ReservationListview.Refresh();

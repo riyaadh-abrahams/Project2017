@@ -33,12 +33,13 @@
             this.makeReservation = new System.Windows.Forms.Button();
             this.GenerateReports = new System.Windows.Forms.Button();
             this.ViewReservations = new System.Windows.Forms.Button();
+            this.viewCustButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ExitB
             // 
             this.ExitB.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExitB.Location = new System.Drawing.Point(448, 333);
+            this.ExitB.Location = new System.Drawing.Point(753, 402);
             this.ExitB.Name = "ExitB";
             this.ExitB.Size = new System.Drawing.Size(75, 23);
             this.ExitB.TabIndex = 0;
@@ -49,7 +50,7 @@
             // makeReservation
             // 
             this.makeReservation.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.makeReservation.Location = new System.Drawing.Point(56, 104);
+            this.makeReservation.Location = new System.Drawing.Point(317, 14);
             this.makeReservation.Name = "makeReservation";
             this.makeReservation.Size = new System.Drawing.Size(127, 49);
             this.makeReservation.TabIndex = 1;
@@ -60,7 +61,7 @@
             // GenerateReports
             // 
             this.GenerateReports.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GenerateReports.Location = new System.Drawing.Point(403, 105);
+            this.GenerateReports.Location = new System.Drawing.Point(464, 78);
             this.GenerateReports.Name = "GenerateReports";
             this.GenerateReports.Size = new System.Drawing.Size(127, 49);
             this.GenerateReports.TabIndex = 2;
@@ -70,13 +71,24 @@
             // ViewReservations
             // 
             this.ViewReservations.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ViewReservations.Location = new System.Drawing.Point(227, 104);
+            this.ViewReservations.Location = new System.Drawing.Point(464, 14);
             this.ViewReservations.Name = "ViewReservations";
             this.ViewReservations.Size = new System.Drawing.Size(127, 49);
             this.ViewReservations.TabIndex = 3;
-            this.ViewReservations.Text = "View Reservation";
+            this.ViewReservations.Text = "View Reservations";
             this.ViewReservations.UseVisualStyleBackColor = true;
             this.ViewReservations.Click += new System.EventHandler(this.ViewReservations_Click);
+            // 
+            // viewCustButton
+            // 
+            this.viewCustButton.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewCustButton.Location = new System.Drawing.Point(317, 78);
+            this.viewCustButton.Name = "viewCustButton";
+            this.viewCustButton.Size = new System.Drawing.Size(127, 49);
+            this.viewCustButton.TabIndex = 4;
+            this.viewCustButton.Text = "View Customers";
+            this.viewCustButton.UseVisualStyleBackColor = true;
+            this.viewCustButton.Click += new System.EventHandler(this.viewCustButton_Click);
             // 
             // Homepage
             // 
@@ -85,6 +97,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(922, 600);
+            this.Controls.Add(this.viewCustButton);
             this.Controls.Add(this.ViewReservations);
             this.Controls.Add(this.GenerateReports);
             this.Controls.Add(this.makeReservation);
@@ -101,5 +114,6 @@
         private System.Windows.Forms.Button makeReservation;
         private System.Windows.Forms.Button GenerateReports;
         private System.Windows.Forms.Button ViewReservations;
+        private System.Windows.Forms.Button viewCustButton;
     }
 }

@@ -80,7 +80,8 @@ namespace Project2017.PresentationLayer
             }
             if (overView.personal.form1Closed)
             {
-                overView.personal.Show();
+                
+
             }
 
             //Create Booking

@@ -26,6 +26,7 @@ namespace Project2017.PresentationLayer
         public paymentform payinglaunch { get; set; }
         public SummaryPage summary { get; set; }
         public PaymentDetailController paymentDetailController { get; set; }
+        public CustomerListForm customerListForm { get; set; }
 
         public Booking myBooking { get; set; }
         public Customer myCustomer { get; set; }
@@ -214,6 +215,15 @@ namespace Project2017.PresentationLayer
             summary.Dock = DockStyle.Fill;
         }
 
+        public void CreateCustomerListForm()
+        {
+            customerListForm = new CustomerListForm(customerController);
+            customerListForm.MdiParent = this;
+            customerListForm.StartPosition = FormStartPosition.CenterParent;
+            customerListForm.FormBorderStyle = FormBorderStyle.None;
+            customerListForm.Dock = DockStyle.Fill;
+        }
+
         public void CreateReviewForm()
         {
             summary = new SummaryPage(this);
@@ -225,14 +235,16 @@ namespace Project2017.PresentationLayer
         {
 
             viewList = new reservationList(this);
+            
             viewList.MdiParent = this;
+            viewList.FormBorderStyle = FormBorderStyle.None;
+            viewList.Dock = DockStyle.Fill;
             viewList.StartPosition = FormStartPosition.CenterParent;
             //customerListForm.WindowState = FormWindowState.Maximized;
             viewList.MaximizeBox = false;
             viewList.MinimizeBox = false;
             viewList.ShowIcon = false;
-            viewList.FormBorderStyle = FormBorderStyle.None;
-            viewList.Dock = DockStyle.Fill;
+            
 
     }
 

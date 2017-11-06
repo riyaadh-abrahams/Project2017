@@ -105,7 +105,15 @@ namespace Project2017.PresentationLayer
                 overView.summary.Close();
             if (overView.viewList != null)
                 overView.viewList.Close();
+            if (overView.customerListForm != null)
+                overView.customerListForm.Close();
         }
         #endregion
+
+        private void viewCustButton_Click(object sender, EventArgs e)
+        {
+            overView.CreateCustomerListForm();
+            overView.customerListForm.Show();
+        }
     }
 }

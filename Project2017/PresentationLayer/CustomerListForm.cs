@@ -63,8 +63,10 @@ namespace Project2017.PresentationLayer
             customerListView.Columns.Insert(0, "CustomerID", 120, HorizontalAlignment.Left);
             customerListView.Columns.Insert(1, "Name", 120, HorizontalAlignment.Left);
             customerListView.Columns.Insert(2, "Surname", 150, HorizontalAlignment.Left);
-            customerListView.Columns.Insert(3, "Address", 100, HorizontalAlignment.Left);
-            customerListView.Columns.Insert(4, "EmailAddress", 100, HorizontalAlignment.Left);
+            customerListView.Columns.Insert(3, "Phone", 100, HorizontalAlignment.Left);
+            customerListView.Columns.Insert(4, "Address", 100, HorizontalAlignment.Left);
+            customerListView.Columns.Insert(5, "EmailAddress", 100, HorizontalAlignment.Left);
+            
 
             foreach (Customer customer in customers)
             {
@@ -73,14 +75,16 @@ namespace Project2017.PresentationLayer
 
                 customerDetails.SubItems.Add(customer.Name);
                 customerDetails.SubItems.Add(customer.Surname);
+                customerDetails.SubItems.Add(customer.Phone);
                 customerDetails.SubItems.Add(customer.Address);
                 customerDetails.SubItems.Add(customer.EmailAddress);
+                
 
                 customerListView.Items.Add(customerDetails);
             }
 
-            customerListView.Columns[3].Width = -2;
             customerListView.Columns[4].Width = -2;
+            customerListView.Columns[5].Width = -2;
 
             customerListView.Refresh();
             customerListView.GridLines = true;

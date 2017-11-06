@@ -8,6 +8,6 @@ namespace Project2017.BusinessLayer.Entities
 {
     public class Room
     {
-        public const int numberOfRoomsInHotel=10;
+        public const int numberOfRoomsInHotel=5;
     }
 }
