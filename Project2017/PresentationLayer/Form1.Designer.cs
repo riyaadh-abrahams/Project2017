@@ -66,6 +66,7 @@
             // Identity
             // 
             this.Identity.Location = new System.Drawing.Point(53, 61);
+            this.Identity.MaxLength = 13;
             this.Identity.Name = "Identity";
             this.Identity.Size = new System.Drawing.Size(170, 20);
             this.Identity.TabIndex = 1;
