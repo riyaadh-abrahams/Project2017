@@ -158,7 +158,7 @@
             // cancelButton
             // 
             this.cancelButton.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(881, 437);
+            this.cancelButton.Location = new System.Drawing.Point(805, 444);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(68, 30);
             this.cancelButton.TabIndex = 16;
@@ -169,7 +169,7 @@
             // submitButton
             // 
             this.submitButton.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submitButton.Location = new System.Drawing.Point(808, 437);
+            this.submitButton.Location = new System.Drawing.Point(879, 444);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(67, 30);
             this.submitButton.TabIndex = 15;
