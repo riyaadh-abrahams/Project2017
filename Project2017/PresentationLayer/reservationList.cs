@@ -123,6 +123,8 @@ namespace Project2017.PresentationLayer
                 numRoomsUpDown.Visible = false;
                 arrL.Visible = false;
                 depL.Visible = false;
+                depositLabel.Visible = false;
+                canIBookLable.Visible = false;
                 numL.Visible = false;
                 button1.Visible = false;
                 ReservationListview.Enabled = true;
@@ -148,6 +150,8 @@ namespace Project2017.PresentationLayer
                 idL.Visible = false;
                 summaryButton.Visible = true;
                 closeButton.Visible = true;
+                depositLabel.Visible = false;
+                canIBookLable.Visible = false;
             }
             if (state == FormStates.Edit)
             {
@@ -168,6 +172,8 @@ namespace Project2017.PresentationLayer
                 idL.Text = "Edit Booking: "+overView.myBooking.BookingID;
                 summaryButton.Visible = false;
                 closeButton.Visible = false;
+                depositLabel.Visible = true;
+                canIBookLable.Visible = true;
             }
 
         }
@@ -193,7 +199,19 @@ namespace Project2017.PresentationLayer
             EditB.Visible = false;
             ShowAll();
 
-            MessageBox.Show("This booking will be permanently deleted");
+            DialogResult dialogResult = MessageBox.Show("The Booking will be permanently deleted. Are you sure?", "Delete Booking", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                overView.myBooking = overView.bookingController.Find(ReservationListview.SelectedItems[0].Text);
+                overView.bookingController.DataMaintenance(overView.myBooking, DatabaseLayer.DB.DBOperation.Delete);
+                overView.bookingController.FinalizeChanges(overView.myBooking);
+                setUpReservationListView();
+                ShowAll();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                ShowAll();
+            }
         }
         /*private void ContinueB_Click(object sender, EventArgs e)
         {

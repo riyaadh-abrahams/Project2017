@@ -45,6 +45,10 @@
             this.EmailLabel = new System.Windows.Forms.Label();
             this.AddressLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.idIV = new System.Windows.Forms.Label();
+            this.phoneIV = new System.Windows.Forms.Label();
+            this.emailIV = new System.Windows.Forms.Label();
+            this.vL = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Check
@@ -64,6 +68,7 @@
             this.Identity.Name = "Identity";
             this.Identity.Size = new System.Drawing.Size(170, 20);
             this.Identity.TabIndex = 1;
+            this.Identity.TextChanged += new System.EventHandler(this.Identity_TextChanged);
             // 
             // AddressTBox
             // 
@@ -156,7 +161,7 @@
             // 
             this.IDLabel.AutoSize = true;
             this.IDLabel.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IDLabel.Location = new System.Drawing.Point(47, 41);
+            this.IDLabel.Location = new System.Drawing.Point(50, 41);
             this.IDLabel.Name = "IDLabel";
             this.IDLabel.Size = new System.Drawing.Size(23, 18);
             this.IDLabel.TabIndex = 17;
@@ -191,6 +196,52 @@
             this.label1.Size = new System.Drawing.Size(0, 20);
             this.label1.TabIndex = 21;
             // 
+            // idIV
+            // 
+            this.idIV.AutoSize = true;
+            this.idIV.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idIV.ForeColor = System.Drawing.Color.Red;
+            this.idIV.Location = new System.Drawing.Point(76, 40);
+            this.idIV.Name = "idIV";
+            this.idIV.Size = new System.Drawing.Size(69, 18);
+            this.idIV.TabIndex = 22;
+            this.idIV.Text = "*invalid*";
+            this.idIV.Visible = false;
+            // 
+            // phoneIV
+            // 
+            this.phoneIV.AutoSize = true;
+            this.phoneIV.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phoneIV.ForeColor = System.Drawing.Color.Red;
+            this.phoneIV.Location = new System.Drawing.Point(151, 304);
+            this.phoneIV.Name = "phoneIV";
+            this.phoneIV.Size = new System.Drawing.Size(69, 18);
+            this.phoneIV.TabIndex = 23;
+            this.phoneIV.Text = "*invalid*";
+            this.phoneIV.Visible = false;
+            // 
+            // emailIV
+            // 
+            this.emailIV.AutoSize = true;
+            this.emailIV.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailIV.ForeColor = System.Drawing.Color.Red;
+            this.emailIV.Location = new System.Drawing.Point(154, 166);
+            this.emailIV.Name = "emailIV";
+            this.emailIV.Size = new System.Drawing.Size(69, 18);
+            this.emailIV.TabIndex = 24;
+            this.emailIV.Text = "*invalid*";
+            this.emailIV.Visible = false;
+            // 
+            // vL
+            // 
+            this.vL.AutoSize = true;
+            this.vL.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vL.ForeColor = System.Drawing.Color.Red;
+            this.vL.Location = new System.Drawing.Point(418, 164);
+            this.vL.Name = "vL";
+            this.vL.Size = new System.Drawing.Size(0, 16);
+            this.vL.TabIndex = 25;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,6 +249,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(780, 516);
+            this.Controls.Add(this.vL);
+            this.Controls.Add(this.emailIV);
+            this.Controls.Add(this.phoneIV);
+            this.Controls.Add(this.idIV);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AddressLabel);
             this.Controls.Add(this.EmailLabel);
@@ -240,6 +295,10 @@
         private System.Windows.Forms.Label EmailLabel;
         private System.Windows.Forms.Label AddressLabel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label idIV;
+        private System.Windows.Forms.Label phoneIV;
+        private System.Windows.Forms.Label emailIV;
+        private System.Windows.Forms.Label vL;
     }
 }
 

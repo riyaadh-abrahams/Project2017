@@ -83,20 +83,27 @@ namespace Project2017
 
         private void ContinueB_Click(object sender, EventArgs e)
         {
-            PopulateObject();
-            //ClearAll();
-            overView.myBooking.CustomerID = overView.myCustomer.CustomerID;
-            if (overView.payinglaunch == null)
+            if (verifyInputs())
             {
-                overView.CreatePaymentForm();
-            }
-            if (overView.payinglaunch.formClose)
-            {
+                PopulateObject();
+                //ClearAll();
+                overView.myBooking.CustomerID = overView.myCustomer.CustomerID;
+                if (overView.payinglaunch == null)
+                {
+                    overView.CreatePaymentForm();
+                }
+                if (overView.payinglaunch.formClose)
+                {
+                    overView.payinglaunch.Show();
+                }
+                vL.Visible = false;
                 overView.payinglaunch.Show();
             }
-            
-            overView.payinglaunch.Show();
-
+            else
+            {
+                vL.Visible = true;
+                vL.Text = "Error! Check input values";
+            }
 
         }
         #endregion
@@ -150,11 +157,54 @@ namespace Project2017
             overView.myCustomer.Phone = phoneTBox.Text;
 
         }
+
+        private bool verifyInputs()
+        {
+            if (Identity.Text.All(Char.IsDigit)
+                && phoneTBox.Text.All(Char.IsDigit)
+                && Identity.Text.Length == 13
+                && IsValidEmail(EmailTBox.Text)
+                )
+            {
+                emailIV.Visible = false;
+                idIV.Visible = false;
+                phoneIV.Visible = false;
+                return true;
+            }
+            else
+            {
+                if (!Identity.Text.All(Char.IsDigit) || Identity.Text.Length != 13)
+                    idIV.Visible = true;
+                if (!phoneTBox.Text.All(Char.IsDigit))
+                    phoneIV.Visible = true;
+                if (!IsValidEmail(EmailTBox.Text))
+                    emailIV.Visible = true;
+                return false;
+            }
+        }
+
+        bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         #endregion
 
         private void Form1_Load(object sender, EventArgs e)
         {
             ShowAll(false);
+        }
+
+        private void Identity_TextChanged(object sender, EventArgs e)
+        {
+            ContinueB.Enabled = false;
         }
     }
 }

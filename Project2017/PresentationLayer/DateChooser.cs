@@ -45,12 +45,14 @@ namespace Project2017.PresentationLayer
                 {
                     charge = overView.bookingController.CalculateCharge(arrivalDatePicker.Value, departurelDatePicker.Value, (int)numRoomsUpDown.Value);
                     deposit = charge*0.1m;
+                    canIBookLable.ForeColor = Color.Green;
                     canIBookLable.Text = "Rooms Available. Charge = R" + charge;
                     depositLabel.Text = "Deposit (10%): R" + deposit;
                     ContinueB.Enabled = true;
                 }
                 else
                 {
+                    canIBookLable.ForeColor = Color.Red;
                     canIBookLable.Text = "Invaid Dates!";
                     ContinueB.Enabled = false;
                     depositLabel.Text = "";
@@ -59,6 +61,7 @@ namespace Project2017.PresentationLayer
             }
             else
             {
+                canIBookLable.ForeColor = Color.Red;
                 canIBookLable.Text = "Not Enough Rooms Available";
                 ContinueB.Enabled = false;
                 depositLabel.Text = "";

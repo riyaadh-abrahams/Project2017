@@ -99,7 +99,7 @@
             this.departureDatePicker.Name = "departureDatePicker";
             this.departureDatePicker.Size = new System.Drawing.Size(141, 20);
             this.departureDatePicker.TabIndex = 9;
-            this.departureDatePicker.Value = new System.DateTime(2017, 12, 1, 0, 0, 0, 0);
+            this.departureDatePicker.Value = new System.DateTime(2017, 12, 2, 0, 0, 0, 0);
             this.departureDatePicker.ValueChanged += new System.EventHandler(this.departureDatePicker_ValueChanged);
             // 
             // numRoomsUpDown

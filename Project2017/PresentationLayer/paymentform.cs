@@ -78,32 +78,52 @@ namespace Project2017.PresentationLayer
             {
                 overView.myBooking.DepositPaid = false;
                 overView.myBooking.PaymentID = null;
+                vL.Visible = false;
+
+                if (overView.summary == null)
+                {
+                    overView.CreateSummaryForm();
+                }
+
+                if (overView.summary.SummaryFormClosed)
+                {
+                    overView.CreateSummaryForm();
+                }
+                overView.summary.Show();
             }
             else
             {
-                overView.myBooking.DepositPaid = true;
-                overView.myPaymentDetail = new PaymentDetail();
-                overView.myPaymentDetail.CreditCardNumber = CardNumberTBox.Text;
-                overView.myPaymentDetail.ExpiryMonth = ExpiryDatePicker.Value.Month;
-                overView.myPaymentDetail.ExpiryMonth = ExpiryDatePicker.Value.Year;
-                overView.myPaymentDetail.CVC = CVSTBox.Text;
-                overView.myPaymentDetail.PaymentID = overView.RandomString(9);
-                overView.myBooking.PaymentID = overView.myPaymentDetail.PaymentID;
+                if (verifyInputs())
+                {
+                    overView.myBooking.DepositPaid = true;
+                    overView.myPaymentDetail = new PaymentDetail();
+                    overView.myPaymentDetail.CreditCardNumber = CardNumberTBox.Text;
+                    overView.myPaymentDetail.ExpiryMonth = ExpiryDatePicker.Value.Month;
+                    overView.myPaymentDetail.ExpiryMonth = ExpiryDatePicker.Value.Year;
+                    overView.myPaymentDetail.CVC = CVSTBox.Text;
+                    overView.myPaymentDetail.PaymentID = overView.RandomString(9);
+                    overView.myBooking.PaymentID = overView.myPaymentDetail.PaymentID;
+                    vL.Visible = false;
 
+                    if (overView.summary == null)
+                    {
+                        overView.CreateSummaryForm();
+                    }
+
+                    if (overView.summary.SummaryFormClosed)
+                    {
+                        overView.CreateSummaryForm();
+                    }
+                    overView.summary.Show();
+
+
+                }
+                else
+                {
+                    vL.Visible = true;
+                    vL.Text = "Error! Check input values";
+                }
             }
-
-            if(overView.summary == null)
-            {
-                overView.CreateSummaryForm();
-            }
-
-            if(overView.summary.SummaryFormClosed)
-            {
-                overView.CreateSummaryForm();
-            }
-
-            overView.summary.Show();
-
             
         }
 
@@ -151,6 +171,21 @@ namespace Project2017.PresentationLayer
             //piryDatePicker.
             // I am not sure of the date time picker
 
+        }
+
+        private bool verifyInputs()
+        {
+            if (CardNumberTBox.Text.All(Char.IsDigit) 
+                && CVSTBox.Text.All(Char.IsDigit)
+                && CardNumberTBox.Text.Length==16
+                && CVSTBox.Text.Length==3)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         #endregion

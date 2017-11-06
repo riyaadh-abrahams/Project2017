@@ -219,7 +219,7 @@ namespace Project2017.DatabaseLayer
                 param = new SqlParameter("@BookingID", SqlDbType.NVarChar, 9, "BookingID");
                 daMain.InsertCommand.Parameters.Add(param);
 
-                param = new SqlParameter("@CustomerID", SqlDbType.NVarChar, 9, "CustomerID");
+                param = new SqlParameter("@CustomerID", SqlDbType.NVarChar, 13, "CustomerID");
                 daMain.InsertCommand.Parameters.Add(param);
 
                 param = new SqlParameter("@NumberOfRooms", SqlDbType.Int, 100, "NumberOfRooms");
@@ -253,7 +253,7 @@ namespace Project2017.DatabaseLayer
                 param.SourceVersion = DataRowVersion.Original;
                 daMain.UpdateCommand.Parameters.Add(param);
 
-                param = new SqlParameter("@CustomerID", SqlDbType.NVarChar, 9, "CustomerID");
+                param = new SqlParameter("@CustomerID", SqlDbType.NVarChar, 13, "CustomerID");
                 param.SourceVersion = DataRowVersion.Original;
                 daMain.UpdateCommand.Parameters.Add(param);
 

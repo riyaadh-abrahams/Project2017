@@ -16,7 +16,7 @@ namespace Project2017.PresentationLayer
     {
 
         private int childFormNumber = 0;
-
+        
         public Homepage goHome { get; set; }
         public reservationList viewList { get; set; }
         public CustomerController customerController { get; set; }
@@ -35,6 +35,7 @@ namespace Project2017.PresentationLayer
         public Overview()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
             customerController = new CustomerController();
             bookingController = new BookingController();
             paymentDetailController = new PaymentDetailController();
@@ -216,7 +217,7 @@ namespace Project2017.PresentationLayer
         public void CreateReviewForm()
         {
             summary = new SummaryPage(this);
-            summary.StartPosition = FormStartPosition.CenterParent;
+            summary.StartPosition = FormStartPosition.CenterScreen;
             summary.buttonManage();
         }
 

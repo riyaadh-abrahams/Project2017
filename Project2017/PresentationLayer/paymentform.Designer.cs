@@ -39,16 +39,19 @@
             this.CardNumberTBox = new System.Windows.Forms.TextBox();
             this.CVSTBox = new System.Windows.Forms.TextBox();
             this.ExpiryDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.vL = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CardPaymentRadio
             // 
             this.CardPaymentRadio.AutoSize = true;
+            this.CardPaymentRadio.Checked = true;
             this.CardPaymentRadio.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CardPaymentRadio.Location = new System.Drawing.Point(72, 35);
             this.CardPaymentRadio.Name = "CardPaymentRadio";
             this.CardPaymentRadio.Size = new System.Drawing.Size(114, 24);
             this.CardPaymentRadio.TabIndex = 0;
+            this.CardPaymentRadio.TabStop = true;
             this.CardPaymentRadio.Text = "Card Payment";
             this.CardPaymentRadio.UseVisualStyleBackColor = true;
             this.CardPaymentRadio.CheckedChanged += new System.EventHandler(this.CardPaymentRadio_CheckedChanged);
@@ -121,6 +124,7 @@
             // CardNumberTBox
             // 
             this.CardNumberTBox.Location = new System.Drawing.Point(75, 122);
+            this.CardNumberTBox.MaxLength = 16;
             this.CardNumberTBox.Name = "CardNumberTBox";
             this.CardNumberTBox.Size = new System.Drawing.Size(191, 20);
             this.CardNumberTBox.TabIndex = 13;
@@ -128,6 +132,7 @@
             // CVSTBox
             // 
             this.CVSTBox.Location = new System.Drawing.Point(75, 263);
+            this.CVSTBox.MaxLength = 3;
             this.CVSTBox.Name = "CVSTBox";
             this.CVSTBox.Size = new System.Drawing.Size(100, 20);
             this.CVSTBox.TabIndex = 14;
@@ -139,6 +144,16 @@
             this.ExpiryDatePicker.Size = new System.Drawing.Size(147, 20);
             this.ExpiryDatePicker.TabIndex = 15;
             // 
+            // vL
+            // 
+            this.vL.AutoSize = true;
+            this.vL.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vL.ForeColor = System.Drawing.Color.Red;
+            this.vL.Location = new System.Drawing.Point(380, 123);
+            this.vL.Name = "vL";
+            this.vL.Size = new System.Drawing.Size(0, 16);
+            this.vL.TabIndex = 16;
+            // 
             // paymentform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,6 +161,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(699, 448);
+            this.Controls.Add(this.vL);
             this.Controls.Add(this.ExpiryDatePicker);
             this.Controls.Add(this.CVSTBox);
             this.Controls.Add(this.CardNumberTBox);
@@ -175,5 +191,6 @@
         private System.Windows.Forms.TextBox CardNumberTBox;
         private System.Windows.Forms.TextBox CVSTBox;
         private System.Windows.Forms.DateTimePicker ExpiryDatePicker;
+        private System.Windows.Forms.Label vL;
     }
 }
