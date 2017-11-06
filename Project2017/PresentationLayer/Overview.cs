@@ -130,7 +130,7 @@ namespace Project2017.PresentationLayer
 
         # region HomePage and Reservation List
 
-        private void CreateHomepage() 
+        public void CreateHomepage() 
         {
             goHome = new Homepage(this);
             goHome.MdiParent = this;
@@ -151,13 +151,8 @@ namespace Project2017.PresentationLayer
 
         private void homePageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(goHome == null) {
-                CreateHomepage();
-            }
-            if(goHome.HomepageFormClosed) {
-                CreateHomepage();
-            }
 
+            CreateHomepage();
             goHome.Show();
         }
 
@@ -218,6 +213,13 @@ namespace Project2017.PresentationLayer
             summary.Dock = DockStyle.Fill;
         }
 
+        public void CreateReviewForm()
+        {
+            summary = new SummaryPage(this);
+            summary.StartPosition = FormStartPosition.CenterParent;
+            summary.buttonManage();
+        }
+
         public void CreateReservationListForm()
         {
 
@@ -244,6 +246,8 @@ namespace Project2017.PresentationLayer
             return new string(Enumerable.Repeat(chars, length)
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
+
+
         #endregion
     }
 }

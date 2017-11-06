@@ -77,9 +77,8 @@ namespace Project2017
 
         private void CancelB_Click(object sender, EventArgs e)
         {
-            ClearAll();
             form1Closed = true;
-            this.Close();
+            this.Hide();
         }
 
         private void ContinueB_Click(object sender, EventArgs e)
@@ -87,7 +86,15 @@ namespace Project2017
             PopulateObject();
             //ClearAll();
             overView.myBooking.CustomerID = overView.myCustomer.CustomerID;
-            overView.CreatePaymentForm();
+            if (overView.payinglaunch == null)
+            {
+                overView.CreatePaymentForm();
+            }
+            if (overView.payinglaunch.formClose)
+            {
+                overView.payinglaunch.Show();
+            }
+            
             overView.payinglaunch.Show();
 
 

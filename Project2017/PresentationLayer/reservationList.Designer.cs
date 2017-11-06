@@ -44,13 +44,15 @@
             this.depositLabel = new System.Windows.Forms.Label();
             this.canIBookLable = new System.Windows.Forms.Label();
             this.idL = new System.Windows.Forms.Label();
+            this.summaryButton = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numRoomsUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // EditB
             // 
             this.EditB.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditB.Location = new System.Drawing.Point(810, 356);
+            this.EditB.Location = new System.Drawing.Point(795, 356);
             this.EditB.Name = "EditB";
             this.EditB.Size = new System.Drawing.Size(67, 30);
             this.EditB.TabIndex = 1;
@@ -61,7 +63,7 @@
             // DeleteB
             // 
             this.DeleteB.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteB.Location = new System.Drawing.Point(881, 356);
+            this.DeleteB.Location = new System.Drawing.Point(868, 356);
             this.DeleteB.Name = "DeleteB";
             this.DeleteB.Size = new System.Drawing.Size(68, 30);
             this.DeleteB.TabIndex = 2;
@@ -71,9 +73,9 @@
             // 
             // ReservationListview
             // 
-            this.ReservationListview.Location = new System.Drawing.Point(30, 39);
+            this.ReservationListview.Location = new System.Drawing.Point(12, 39);
             this.ReservationListview.Name = "ReservationListview";
-            this.ReservationListview.Size = new System.Drawing.Size(919, 311);
+            this.ReservationListview.Size = new System.Drawing.Size(924, 311);
             this.ReservationListview.TabIndex = 7;
             this.ReservationListview.UseCompatibleStateImageBehavior = false;
             this.ReservationListview.SelectedIndexChanged += new System.EventHandler(this.ReservationListview_SelectedIndexChanged);
@@ -172,6 +174,7 @@
             this.submitButton.TabIndex = 15;
             this.submitButton.Text = "Submit";
             this.submitButton.UseVisualStyleBackColor = true;
+            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // button1
             // 
@@ -211,6 +214,28 @@
             this.idL.Size = new System.Drawing.Size(0, 19);
             this.idL.TabIndex = 20;
             // 
+            // summaryButton
+            // 
+            this.summaryButton.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.summaryButton.Location = new System.Drawing.Point(12, 356);
+            this.summaryButton.Name = "summaryButton";
+            this.summaryButton.Size = new System.Drawing.Size(90, 30);
+            this.summaryButton.TabIndex = 21;
+            this.summaryButton.Text = "Summary";
+            this.summaryButton.UseVisualStyleBackColor = true;
+            this.summaryButton.Click += new System.EventHandler(this.summaryButton_Click);
+            // 
+            // closeButton
+            // 
+            this.closeButton.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeButton.Location = new System.Drawing.Point(391, 390);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(168, 30);
+            this.closeButton.TabIndex = 22;
+            this.closeButton.Text = "Close";
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
             // reservationList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -218,6 +243,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(974, 621);
+            this.Controls.Add(this.closeButton);
+            this.Controls.Add(this.summaryButton);
             this.Controls.Add(this.idL);
             this.Controls.Add(this.depositLabel);
             this.Controls.Add(this.canIBookLable);
@@ -257,5 +284,7 @@
         private System.Windows.Forms.Label depositLabel;
         private System.Windows.Forms.Label canIBookLable;
         private System.Windows.Forms.Label idL;
+        private System.Windows.Forms.Button summaryButton;
+        private System.Windows.Forms.Button closeButton;
     }
 }

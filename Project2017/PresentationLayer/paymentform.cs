@@ -25,6 +25,7 @@ namespace Project2017.PresentationLayer
         private SummaryPage summary;
         private Customer customer;
         private CustomerController customerController;
+        public bool formClose=false;
         Overview overView;
 
         public paymentform(Overview overView)
@@ -68,7 +69,8 @@ namespace Project2017.PresentationLayer
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            formClose = true;
+            this.Hide();
         }
         private void ContinueB_Click(object sender, EventArgs e)
         {

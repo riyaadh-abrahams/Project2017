@@ -104,8 +104,8 @@ namespace Project2017.PresentationLayer
             addL.Text = overView.myCustomer.Address;
             phoneL.Text = overView.myCustomer.Phone;
 
-            ArrivalL.Text = overView.myBooking.ArrivalDate.ToString();
-            DepartureL.Text = overView.myBooking.DepartureDate.ToString();
+            ArrivalL.Text = overView.myBooking.ArrivalDate.ToString("dd/MM/yyyy");
+            DepartureL.Text = overView.myBooking.DepartureDate.ToString("dd/MM/yyyy");
             NRoomL.Text = overView.myBooking.NumberOfRooms.ToString();
             TchargeL.Text = (overView.myBooking.DepositAmount * 10).ToString();
             DepAmountL.Text = overView.myBooking.DepositAmount.ToString();
@@ -148,7 +148,30 @@ namespace Project2017.PresentationLayer
             overView.myCustomer = null;
             overView.myPaymentDetail = null;
 
+            //close forms
+            overView.CreateHomepage();
+            overView.goHome.Show();
+            
+
             MessageBox.Show("YOU WIN");
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        public void buttonManage()
+        {
+            closeButton.Visible = true;
+            ConfirmB.Visible = false;
+            CancelB.Visible = false;
+        }
+
+        private void CancelB_Click_1(object sender, EventArgs e)
+        {
+            SummaryFormClosed = true;
+            this.Hide();
         }
     }
 }

@@ -24,7 +24,6 @@ namespace Project2017.PresentationLayer
         }
         public bool listFormClosed = false;
         private CustomerController customerController;
-        private Customer customer;
         private Collection<Customer> customers;
         private FormStates state;
 

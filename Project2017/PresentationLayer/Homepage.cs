@@ -25,9 +25,10 @@ namespace Project2017.PresentationLayer
         {
             InitializeComponent();
             this.overView = o;
+            closeStuff();
             customerController = overView.customerController;
             this.b = overView.bookingController;
-            
+
             //this.p = p;
         }
 
@@ -61,27 +62,14 @@ namespace Project2017.PresentationLayer
         private void makeReservation_Click(object sender, EventArgs e)
         {
 
-            if (overView.dateChooser == null)
-            {
-                overView.CreateNewdateChooser();
-            }
-            if (overView.dateChooser.dateChooserFormClosed)
-            {
-                overView.CreateNewdateChooser();
-            }
-
+            overView.CreateNewdateChooser();
             overView.dateChooser.Show();
-
         }
 
 
         private void ViewReservations_Click(object sender, EventArgs e)
         {
-            if (overView.viewList == null)
-            { 
             overView.CreateReservationListForm();
-            }
-
             overView.viewList.Show();
         }
 
@@ -103,6 +91,20 @@ namespace Project2017.PresentationLayer
             ViewReservations.Visible = value;
             GenerateReports.Visible = value;
             ExitB.Visible = value;
+        }
+
+        public void closeStuff()
+        {
+            if (overView.dateChooser != null)
+                overView.dateChooser.Close();
+            if (overView.personal != null)
+                overView.personal.Close();
+            if (overView.payinglaunch != null)
+                overView.payinglaunch.Close();
+            if (overView.summary != null)
+                overView.summary.Close();
+            if (overView.viewList != null)
+                overView.viewList.Close();
         }
         #endregion
     }

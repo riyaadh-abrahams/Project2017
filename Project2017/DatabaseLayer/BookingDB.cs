@@ -280,6 +280,10 @@ namespace Project2017.DatabaseLayer
                 param = new SqlParameter("@PaymentID", SqlDbType.NVarChar, 9, "PaymentID");
                 param.SourceVersion = DataRowVersion.Original;
                 daMain.UpdateCommand.Parameters.Add(param);
+
+                param = new SqlParameter("@Original_ID", SqlDbType.NVarChar, 9, "BookingID");
+                param.SourceVersion = DataRowVersion.Original;
+                daMain.UpdateCommand.Parameters.Add(param);
         }
 
             private void Build_DELETE_Parameters()
@@ -293,13 +297,13 @@ namespace Project2017.DatabaseLayer
             private void Create_INSERT_Command(Booking myBooking)
             {
                 //Create the command that must be used to insert values into the Books table..
-                daMain.InsertCommand = new SqlCommand("INSERT into Bookings (BookingID, CustomerID, NumberOfRooms, ArrivalDate, DepartureDate, DepositAmount, DepositPaid, PaymentID) VALUES (@BookingID, @CustomerID, @NumberOfRooms, @ArrivalDate, @DepartureDate, @DepositAmount, DepositPaid, PaymentID)", cnMain);
+                daMain.InsertCommand = new SqlCommand("INSERT into Bookings (BookingID, CustomerID, NumberOfRooms, ArrivalDate, DepartureDate, DepositAmount, DepositPaid, PaymentID) VALUES (@BookingID, @CustomerID, @NumberOfRooms, @ArrivalDate, @DepartureDate, @DepositAmount, @DepositPaid, @PaymentID)", cnMain);
                 Build_INSERT_Parameters(myBooking);
             }
 
             private void Create_UPDATE_Command(Booking myBooking)
             {
-                daMain.UpdateCommand = new SqlCommand("UPDATE Bookings SET CustomerID =@CustomerID, NumberOfRooms =@NumberOfRooms, ArrivalDate =@ArrivalDate, DepartureDate = @DepartureDate, DepositAmount = @DepositAmount, DepositPaid = @DepositPaid, PaymentID = @PaymentID" + "WHERE BookingID = @Original_ID", cnMain);
+                daMain.UpdateCommand = new SqlCommand("UPDATE Bookings SET CustomerID =@CustomerID, NumberOfRooms =@NumberOfRooms, ArrivalDate =@ArrivalDate, DepartureDate = @DepartureDate, DepositAmount = @DepositAmount, DepositPaid = @DepositPaid, PaymentID = @PaymentID" + " WHERE BookingID = @Original_ID", cnMain);
                 Build_UPDATE_Parameters(myBooking);
             }
 

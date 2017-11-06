@@ -127,6 +127,8 @@ namespace Project2017.PresentationLayer
                 button1.Visible = false;
                 ReservationListview.Enabled = true;
                 idL.Visible = false;
+                summaryButton.Visible = false;
+                closeButton.Visible = true;
             }
 
             if (state == FormStates.Clicked)
@@ -144,6 +146,8 @@ namespace Project2017.PresentationLayer
                 button1.Visible = false;
                 ReservationListview.Enabled = true;
                 idL.Visible = false;
+                summaryButton.Visible = true;
+                closeButton.Visible = true;
             }
             if (state == FormStates.Edit)
             {
@@ -162,6 +166,8 @@ namespace Project2017.PresentationLayer
                 ReservationListview.Enabled = false;
                 idL.Visible = true;
                 idL.Text = "Edit Booking: "+overView.myBooking.BookingID;
+                summaryButton.Visible = false;
+                closeButton.Visible = false;
             }
 
         }
@@ -169,6 +175,7 @@ namespace Project2017.PresentationLayer
         #region Button click
         private void EditB_Click(object sender, EventArgs e)
         {
+            
             state = FormStates.Edit;
             if (ReservationListview.SelectedItems.Count > 0)   // if you selected an item 
             {
@@ -177,6 +184,7 @@ namespace Project2017.PresentationLayer
                 departureDatePicker.Value = overView.myBooking.DepartureDate;
                 numRoomsUpDown.Value = overView.myBooking.NumberOfRooms;
             }
+
             ShowAll();
         }
 
@@ -213,7 +221,15 @@ namespace Project2017.PresentationLayer
 
         private void ReservationListview_SelectedIndexChanged(object sender, EventArgs e)
         {
-            state = FormStates.Clicked;
+            if (ReservationListview.SelectedItems.Count > 0)   // if you selected an item 
+            {
+                state = FormStates.Clicked;
+            }
+            else
+            {
+                state = FormStates.View;
+            }
+            
             ShowAll();
         }
 
@@ -278,6 +294,42 @@ namespace Project2017.PresentationLayer
         private void arrivalDatePicker_ValueChanged(object sender, EventArgs e)
         {
             submitButton.Enabled = false;
+        }
+
+        private void submitButton_Click(object sender, EventArgs e)
+        {
+            overView.myBooking.ArrivalDate = arrivalDatePicker.Value;
+            overView.myBooking.DepartureDate = departureDatePicker.Value;
+            overView.myBooking.NumberOfRooms = (int)numRoomsUpDown.Value;
+
+            overView.bookingController.DataMaintenance(overView.myBooking, DatabaseLayer.DB.DBOperation.Edit);
+            overView.bookingController.FinalizeChanges(overView.myBooking);
+            state = FormStates.View;
+            overView.myBooking = null;
+            ShowAll();
+            setUpReservationListView();
+        }
+
+        private void summaryButton_Click(object sender, EventArgs e)
+        {
+            overView.myBooking = overView.bookingController.Find(ReservationListview.SelectedItems[0].Text);
+            overView.myCustomer = overView.customerController.Find(overView.myBooking.CustomerID);
+            if (overView.myBooking.DepositPaid)
+            {
+                overView.myPaymentDetail = overView.paymentDetailController.Find(overView.myBooking.PaymentID);
+            }
+            overView.CreateReviewForm();
+            overView.summary.Show();
+
+            overView.myBooking = null;
+            overView.myCustomer = null;
+            overView.myPaymentDetail = null;
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            overView.CreateHomepage();
+            overView.goHome.Show();
         }
     }
 }

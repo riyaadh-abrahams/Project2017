@@ -56,17 +56,19 @@
             this.label17 = new System.Windows.Forms.Label();
             this.paidL = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.closeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CancelB
             // 
             this.CancelB.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelB.Location = new System.Drawing.Point(529, 410);
+            this.CancelB.Location = new System.Drawing.Point(553, 410);
             this.CancelB.Name = "CancelB";
             this.CancelB.Size = new System.Drawing.Size(75, 23);
             this.CancelB.TabIndex = 1;
             this.CancelB.Text = "Cancel";
             this.CancelB.UseVisualStyleBackColor = true;
+            this.CancelB.Click += new System.EventHandler(this.CancelB_Click_1);
             // 
             // ConfirmB
             // 
@@ -352,6 +354,18 @@
             this.label19.TabIndex = 29;
             this.label19.Text = "Deposit Paid:";
             // 
+            // closeButton
+            // 
+            this.closeButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeButton.Location = new System.Drawing.Point(317, 410);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(75, 23);
+            this.closeButton.TabIndex = 31;
+            this.closeButton.Text = "Close";
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Visible = false;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
             // SummaryPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -359,6 +373,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(751, 476);
+            this.Controls.Add(this.closeButton);
             this.Controls.Add(this.paidL);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.DepAmountL);
@@ -422,5 +437,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label paidL;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button closeButton;
     }
 }
