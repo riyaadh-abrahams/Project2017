@@ -49,6 +49,7 @@
             this.phoneIV = new System.Windows.Forms.Label();
             this.emailIV = new System.Windows.Forms.Label();
             this.vL = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Check
@@ -242,6 +243,16 @@
             this.vL.Size = new System.Drawing.Size(0, 16);
             this.vL.TabIndex = 25;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(329, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(125, 18);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Personal Details";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,6 +260,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(780, 516);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.vL);
             this.Controls.Add(this.emailIV);
             this.Controls.Add(this.phoneIV);
@@ -299,6 +311,7 @@
         private System.Windows.Forms.Label phoneIV;
         private System.Windows.Forms.Label emailIV;
         private System.Windows.Forms.Label vL;
+        private System.Windows.Forms.Label label2;
     }
 }
 

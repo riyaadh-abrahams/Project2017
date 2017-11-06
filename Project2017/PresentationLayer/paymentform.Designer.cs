@@ -40,6 +40,7 @@
             this.CVSTBox = new System.Windows.Forms.TextBox();
             this.ExpiryDatePicker = new System.Windows.Forms.DateTimePicker();
             this.vL = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CardPaymentRadio
@@ -154,6 +155,16 @@
             this.vL.Size = new System.Drawing.Size(0, 16);
             this.vL.TabIndex = 16;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(255, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(125, 18);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Payment Details";
+            // 
             // paymentform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,6 +172,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(699, 448);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.vL);
             this.Controls.Add(this.ExpiryDatePicker);
             this.Controls.Add(this.CVSTBox);
@@ -192,5 +204,6 @@
         private System.Windows.Forms.TextBox CVSTBox;
         private System.Windows.Forms.DateTimePicker ExpiryDatePicker;
         private System.Windows.Forms.Label vL;
+        private System.Windows.Forms.Label label2;
     }
 }

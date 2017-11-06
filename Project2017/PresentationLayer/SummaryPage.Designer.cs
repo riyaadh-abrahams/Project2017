@@ -57,6 +57,7 @@
             this.paidL = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CancelB
@@ -366,6 +367,16 @@
             this.closeButton.Visible = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(331, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 18);
+            this.label3.TabIndex = 32;
+            this.label3.Text = "Summary";
+            // 
             // SummaryPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -373,6 +384,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(751, 476);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.paidL);
             this.Controls.Add(this.label19);
@@ -438,5 +450,6 @@
         private System.Windows.Forms.Label paidL;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Label label3;
     }
 }

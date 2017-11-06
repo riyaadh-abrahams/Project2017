@@ -40,6 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.canIBookLable = new System.Windows.Forms.Label();
             this.depositLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numRoomsUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,6 +163,16 @@
             this.depositLabel.Size = new System.Drawing.Size(0, 19);
             this.depositLabel.TabIndex = 15;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(383, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(117, 19);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Choose Dates";
+            // 
             // DateChooser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,6 +180,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(885, 567);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.depositLabel);
             this.Controls.Add(this.canIBookLable);
             this.Controls.Add(this.label3);
@@ -201,5 +213,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label canIBookLable;
         private System.Windows.Forms.Label depositLabel;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -46,6 +46,7 @@
             this.idL = new System.Windows.Forms.Label();
             this.summaryButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numRoomsUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -236,6 +237,16 @@
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(425, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 18);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Bookings";
+            // 
             // reservationList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,6 +254,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(974, 621);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.summaryButton);
             this.Controls.Add(this.idL);
@@ -286,5 +298,6 @@
         private System.Windows.Forms.Label idL;
         private System.Windows.Forms.Button summaryButton;
         private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Label label2;
     }
 }
